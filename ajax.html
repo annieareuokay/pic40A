@@ -1,0 +1,64 @@
+<!-- Write an html file: ajax.html that loads a message from a text file when the user clicks a button. Submit on CCLE but make sure it works on your own server as a live page, too! -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>A Title</title>
+  
+  <style type="text/css">
+    .example{
+	  color: red;
+	}
+  </style>
+  
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.1.min.js"></script>
+   
+  <script type="text/javascript">
+  
+    		
+	$( function() {
+	
+	// $('#click1').click( function() {
+	// 	    $("#paragraph").load("TExt.txt");
+			
+	// 	  });
+		  
+
+  $('#click1').click( function() {
+        $.ajax({
+            url : "TExt.txt",
+            dataType: "text",
+            success : function (data) {
+                $("#paragraph").html(data);
+            }
+        });
+      //not using javascript, but calling something OUTSIDE the server to put it into the html 
+      });
+      });
+		
+			
+  </script>
+  
+  
+</head>
+
+<body>
+
+<section id="topBit">
+
+</section>
+
+<section>
+
+<input type="button" onclick = "clicked();" value = "click" id= "click1" />
+
+<section>
+
+<p id="paragraph"> Greetings, world.</p>
+
+
+</body>
+
+
+</html>

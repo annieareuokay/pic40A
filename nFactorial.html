@@ -1,0 +1,61 @@
+<!-- fin = list of all the numbers (ex. 1, 2, 6, 24, 120) and say that the 120 is the drop off
+
+Allow user to enter a value of n 
+In the html page,output all the intermeidate values in computing n! starting with the smallest factors. 
+Alert the value of n! in an alert box
+
+Ex: User enters "5", doc should list: 1, 2, 6, 24, 120,
+then an alart comes up saying 120
+ -->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>A Title</title>
+  
+   
+  <script type="text/javascript">
+    window.onload = function(){
+
+    function fact(x){
+		if (x==0){
+			return 1; 
+		}
+
+		if (x < 0){
+			return undefined;
+		}
+
+		for (var i = x; --i;){
+			document.getElementById('output').innerHTML = i; 
+		}
+		return x;
+
+    document.getElementById('output').innerHTML = x;
+	
+
+	};
+
+
+
+	
+	
+  </script>
+  
+  
+</head>
+
+<body onload>
+
+<div id="outer">
+  <div id="inner"><p id="innerinnerp">Test!</p></div>
+</div>
+
+<input type="text" id="userInput" />
+<input type="button" onclick = "takeInput();" value = "click" />
+
+<pre>
+  <p id="output">
+  </p>
+</pre>

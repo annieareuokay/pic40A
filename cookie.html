@@ -1,0 +1,51 @@
+<!-- Exercise: 
+	prompt user for their name (if not already given)
+	every 5-10 seconds, say "Hi, [name]"
+	If the page is refreshed, the message should continue. If the browser if closed, the page needs to prompt the user for their name again. And the process continues.  -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Cookies/title>
+  
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.1.min.js"></script>
+   
+  <script type="text/javascript">
+
+  	var greet; 
+  	var annoying; 
+    window.onload = function(){
+
+  
+    	var name = prompt("Tell me your name. I'll remember this forever: ", ""); // message given and initial value
+	
+		var forgetTime = new Date(); // create new date object
+	
+		fforgetTime.setTime( forgetTime.getTime() + 100000*24*60*60*1000); // set time to 100000 years in the future (giving time in ms)
+	forgetTime = forgetTime.toUTCString();
+	
+	document.cookie = "username="+name+"; expires=" + forgetTime + ";"; // sets a cookie of: username=[Name]; expires=[100K YEARS FROM NOW];
+
+		checkCookie;
+	}
+	
+	function checkCookie(){
+		var name=getCookie("username"); 
+		if (username !=""){
+			alert ("Hello" + username); 
+		}
+
+	}
+
+    }
+	
+  </script>
+  
+  
+</head>
+
+<body>
+</body>
+</html>

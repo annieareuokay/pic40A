@@ -1,0 +1,117 @@
+
+<!--
+
+18. Other Tricks:  	  
+  18.7 Margin and auto
+  
+    Can centre an item within a container provided it has a
+	width by:
+	
+	margin-left: auto;
+	margin-right: auto;
+
+19. HTML and CSS Summary
+  19.1 HTML: 
+    - for content only
+	- HTML5 has semantic meanings to many elements
+	- different browswers may render elements differently
+	by default
+	- web browser parses HTML, styles elements, and renders
+	them to the screen
+
+  19.2 CSS:
+    - tells the brower how to render the html elements
+	- almost all elements have: content, padding, borders,
+	margins, and properties like position, height/width,
+	background-color, color, etc.
+	- by referencing (in increasing specificity) elements,
+	classes, and ids, we are able to make elements display
+	as we like
+
+20. Publishing a Webpage Online  
+   - most of the time, should have a public_html folder
+   - the homepage is by default called index.html
+   - can create directories within the site and link around
+
+21. Intro to JavaScript
+   - JavaScript is a scripting language that runs on the user's
+   end
+   - Highly event-driven: when a page is loaded, when a button
+   is clicked, etc.
+   - Has variables, functions, and "classes" (not really object
+   oriented)
+   - Variable names and types are more relaxed
+   - Browser may forgive syntax errors (missing semi-colons, etc.)
+   - When it fails, may be hard to detect: stuff just doesn't load
+   or change 
+
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>A Title</title>
+  
+  <!-- just to avoid going back and forth: ideally in separate doc -->
+  <style>
+    #outer{
+	  width: 400px;
+	  height: 400px;
+	  background-color: red;
+	}
+	
+	#inner{
+	  width: 200px;
+	  height: 300px;
+	  margin-left: auto;
+	  margin-right: auto;
+	  background-color: blue;
+	}
+	
+	#innerinnerp{
+	  width: 50px;
+	  margin-left: auto;
+	  margin-right: auto;
+	}
+	
+  </style>
+  
+  <script type="text/javascript">
+    
+  </script>
+  
+  
+</head>
+
+<body>
+
+<div id="outer">
+  <div id="inner"><p id="innerinnerp">Test!</p></div>
+</div>
+
+<input type="button" onclick = "swap();" value = "click" />
+
+<p>
+Lorem ipsum dolor sit amet, iaculis felis interdum praesent cum, eget 
+ipsum. Do accumsan et pulvinar, habitant aliquam, libero urna cras non
+ sit malesuada arcu, libero facilisis quis id senectus dui semper.
+</p>
+<p> 
+ Maecenas donec, in libero in tincidunt lorem ac, sed phasellus est 
+ praesent tortor. Malesuada habitasse a imperdiet vivamus sit, sit id 
+ inventore in. Ac et et praesent, in fermentum netus suspendisse elit 
+ blandit ac. Aenean ut duis quam, elementum nec iaculis nulla mollis 
+ sed, etiam justo mattis sed magna eget vulputate. Qui leo diam dignissim.
+ Faucibus placerat quisque, urna ultrices vel. In mi amet luctus 
+ nullam luctus, egestas elit id vivamus facilisis cum elit. Curabitur mauris, nam quam tempor et nec at dui, suspendisse condimentum sollicitudin dictumst malesuada tempus, porttitor quis tortor, felis eget per felis. Amet integer vestibulum mauris viverra non, ligula risus felis.
+</p>
+
+
+
+</body>
+
+
+</html>

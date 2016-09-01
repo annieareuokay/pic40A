@@ -1,0 +1,1 @@
+alert, function, fun, ajax, javascript, i, don't, know, what, goes, here, parameters, innerHTML, include, cookies, elements, changing attributes and style, script, setTimeout, objects, memeber functions

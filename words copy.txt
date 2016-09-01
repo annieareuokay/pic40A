@@ -1,0 +1,1 @@
+alert, prompt, innerHTML, var, objects, typeof, if-statements, for, for-in, do-while, while, arrays, functions, getElementByID, getElementsByTagName, objects, Date, Math, createElement, appendChild, element.id, element.style, removeChild, setTimeout, setInterval, document.cookie, jQuery, Ajax

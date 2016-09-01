@@ -1,0 +1,71 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="utf-8"/>
+	<title> JQuery & Ajax </title>
+
+	<style>
+	div {
+		display: inline-block;
+	}
+
+	</style>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.1.min.js"></script>
+	<script>
+
+	// jquery (is cool)
+
+	// Easily modify multiple elements simultaneously
+/*
+	$(document).ready(function() {
+		// $("div") return a array of divs
+		// .click() attaches the function on lines 26-27 to the divs
+		$("div").click(function() {
+			// this = element that was clicked on
+			var color = $(this).css("background-color");
+			console.log(color);
+			$("p").css("color",color).html(color);
+			//$("p").text(color);
+		});
+	});
+*/
+	// javsacript (sucks)
+
+	function print_color() {
+		var color = this.style.backgroundColor;
+		var par = document.getElementsByTagName("p")[0];
+		par.style.color = color;
+		par.innerHTML = color;
+	}
+
+	loadFunction = function() {
+
+		divs = document.getElementsByTagName("div");
+
+		for (var i = 0 ; i < divs.length ; i++) {
+			divs[i].addEventListener("click",print_color);
+		}
+
+	}
+
+	document.addEventListener("DOMContentLoaded",loadFunction);
+	</script>
+</head>
+
+<body>
+
+	<div style="background-color: red; width: 50px; height: 50px;"> </div>
+	<div style="background-color: green; width: 50px; height: 50px;"> </div>
+	<div style="background-color: blue; width: 50px; height: 50px;"> </div>
+	<div style="background-color: orange; width: 50px; height: 50px;"> </div>
+
+	<h3>The color of the block you clicked is:</h3>
+	<p>
+
+	</p>
+
+</body>
+
+</html>

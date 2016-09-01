@@ -1,0 +1,68 @@
+<!-- Create a class called employee with a constructor
+	have a name
+	have an ID
+	have a salary
+When the button is clicked, output the name, ID, and Salary in alert box
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" /> 
+<title>employee</title>
+
+<script type="text/javascript">
+window.onload = function(){
+
+
+function Employee(){
+	this.name = ""; 
+	this.ID = "123";
+	this.salary = "2000"; 
+	
+}
+
+var mark = new Employee; 
+fin = mark.name; 
+mark.fun(); 
+
+
+
+	  function clicked(){
+
+	  	fin = document.getElementsByName('ps'); // get array	
+ 	    fin[2].innerHTML = "snake";	// change third 
+		// paragraph to 'snake'
+	    fin = fin[1].innerHTML; // change fin to only be 
+		// HTML of 2nd paragraph
+
+
+
+		document.getElementById('output').innerHTML = fin;
+	    
+	  
+	  }
+
+}
+
+
+</script>
+<body>
+
+
+<div id="outer">
+  <div id="inner"><p id="innerinnerp">Test!
+</div>
+
+<input type="text" id="userInput" />
+<input type="button" onclick = "clicked();" value = "click" />
+
+<pre>
+  <p id="output">
+  </p>
+</pre>
+
+
+</head>
+</html>

@@ -1,0 +1,156 @@
+<!doctype html> 
+<html> 
+<head>
+	<meta charset="utf=8"/>
+	<title>Stuff</title>
+
+
+	<style>
+		fieldset{
+			width: 300px; 
+		}
+
+		#colorSelect{
+			float: right;
+		}
+
+		.block{
+			vertical-align: right;
+		}
+
+		/*input[type="radio"]{
+			margin-top: -1px; 
+			vertical-align: right; 
+			padding: 10px;
+			margin: 10x;
+		}*/
+
+		label{
+			vertical-align: right; 
+			padding: 50px;
+			margin: 10x;
+		}
+
+		.canvas{
+			position: relative;
+			display: block;
+			
+			float: right;
+			margin-right: 100px;
+			width: 700px;
+			height: 250px;
+		}
+
+		#canvas{
+			border: 1px solid black;
+		}
+
+		#square{
+			top: 62px;
+			left: 275px;
+			float: right;
+			display: block;
+			position: absolute;
+			background-color: red; 
+			width: 100px;
+			height: 100px;
+			
+		}
+
+		button{
+			width: 50px; 
+		}
+
+	</style>
+
+		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.1.min.js"></script>
+
+	<script type="text/javascript">
+
+		$(document).ready(){
+			cookie=document.cookie; 
+				if (cookie === ""){
+					name = prompt("Please enter your name. I'll remember this: ", "");
+					document.cookie = "name: " + name + ";";
+				}
+
+				else{
+					index = cookie.indexOf("name: "); 
+					index += "name: ".length; 
+					name = cookie.substring(index, cookie.length); 
+				}
+			displayName(name); 
+		}
+
+		function displayName(dn){
+			var divName = document.getElementById('name'); 
+				if (dn===""){
+					text = document.createTextNode("unnamed");
+					document.body.appendChild(divName) 
+				}
+				else{
+					text = document.createTextNode(divName); 
+					document.body.appendChild(text); 
+				}
+		}
+
+			$('#appear').click(function(){
+				
+
+			})
+		
+
+		// cookies=document.cookie;
+		// startpos=cookies.indexOf("Username") + 9;
+		// if (startpos<9) {
+  //     // No cookie set
+  //     var name=window.prompt("Please enter your name","");
+  //     var d = new Date();
+  //     d.setFullYear(d.getFullYear() + 1);
+  //     expires="expires=" + d.toGMTString();
+  //     document.cookie="Username=" + name + "; " + expires;
+  //     document.write("<h2>Welcome, " + name + "!</h2>");
+  // } else {
+  //     // Cookie was found
+  //     endpos=cookies.indexOf("",startpos);
+  //     if (endpos==-1) endpos=cookies.length;
+  //     name=cookies.substring(startpos,endpos);
+  //     document.write("<h2>Welcome back, " + name + "!</h2>");
+  }
+</script>
+
+</head>
+<body>
+
+
+
+<header><h1>Hello,</h1><h1 id="name"></h1> 
+
+<div class="canvas" id="canvas">
+	<div class="canvas" id="square"></div>
+</div>
+<fieldset>
+Box width: <input type="text" id="width"> <br/>
+Box Height <input type="text" id="height"> 	
+</fieldset>
+<fieldset>
+	Select color: 
+	<div id="colorSelect">
+		<label class="block">Red</label><input type="radio" class="radio" name="color" id="red" value="red"><br/>
+		<label class="block">Green</label><input type="radio" class="radio" name="color" id="green" value="green"><br/>
+		<label class="block">Blue</label><input type="radio" class="radio" name="color" id="blue" value="blue">
+	</div>
+</fieldset>
+<fieldset>
+	<input type="button" value = "Appear!" id= "appear" />
+	<input type="button" onclick = "click();" value = "Animate" id= "animate" /><br/>
+	<input type="button" onclick = "click();" value = "Disappear" id= "disappear" />
+	<input type="button" onclick = "click();" value = "Stop" id= "stop" /><br/>
+	<input type="button" onclick = "click();" value = "Forget me" id= "forget" />
+	<input type="button" onclick = "click();" value = "Reset" id= "reset" />
+</fieldset>
+
+
+
+<body>
+</html>

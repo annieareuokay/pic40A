@@ -1,0 +1,306 @@
+
+<!--
+
+28. JavaScript Inclusion
+  28.1 Within Document
+    - can place JavaScript in a <script>...</script> element
+	- some authors place just before closing body tag
+	  - plus side: entire page has loaded by then so all events
+	  will be valid
+	  - minus side: less conventional, but some authors choose
+	  this to avoid JS loading time before the page can load
+  
+  28.2 In Head
+    - define all the functions and events at the top of the doc
+	in the head section
+	- more conventional
+	- drawback: must be loaded before rest of document. May cause
+	delays.
+	
+  
+  28.3 External JavaScript
+    - or store it externally in a file like file.js
+	and link to it:
+	
+	<script src="file.js"> </script>
+	
+	(nothing needs to go inside the element)
+  
+
+29. Document Object Module
+  29.1 Overview
+    - HTML document stored as a tree
+	- the elements immediately embedded within an element are
+	its children
+	- the element enclosing any given element is the parent
+	<p>
+	  <a>some url</a>
+	  <ul>
+	    <li>...</li>
+		<li>...</li>
+	  </ul>
+	</p>
+	
+	- a is a child of p
+	- li is a child of ul, ul is the parent of both li's
+	- the two li's are siblings
+	- the li's are descendants of p
+	- "some url" is a textNode and is a child of a
+	EMPTY SPACE IS TEXTNODE
+  
+  29.2 Accessing and manipulating elements
+  
+    - Many ways to access the elements. Some of the most common:
+	
+	  29.2.1 Functions:
+	
+	  getElementById('id'): element with given id
+	
+	  getElementsByName('name'): array of elements with given name
+	
+	  getElementsByTagName('tag'): array of all elements with
+	  given element type of tag
+	  
+	  createElement('tag'): creates an element object of type tag
+	    ex:
+		  var newp = document.createElement('p');
+		  var newa = document.createElement('a');
+		  
+	  createTextNode('some text'): creates a text node object with
+	  the given text
+	  
+	    ex:
+		  var newtxt = document.createTextNode('someLink');
+		  
+	  appendChild: appends a child to a given element
+	    ex:
+		 
+		newa.appendChild(newtxt);
+		newp.appendChild(newa);
+		
+	  setAttribute: assign the HTML attribute to an element
+	    ex:
+		
+		newa.setAttribute('href', '#');
+	
+	  getAttribute: return the attribute of an element
+	    Ex: 
+		  newa.getAttribute('href'); // #
+	  
+	  insertBefore:
+	    domElement.insertBefore(theNewNode, theNodeToInsertBefore);
+		
+		first element is the Parent of whatever you're trying to insert.
+	  
+	  Combination of many above:
+	  
+	    var someSection = document.getElementById('topBit');
+	  
+		var newp = document.createElement('p');
+		var newa = document.createElement('a');
+		
+		var newtxt = document.createTextNode('someLink');
+		  
+		newa.appendChild(newtxt);
+		newp.appendChild(newa);
+				
+		newa.setAttribute('href', '#');
+		newa.setAttribute('id','newa');
+		
+		someSection.appendChild(newp);
+		
+		var newertxt = document.createTextNode('Newer');
+		var newera = document.createElement('a');
+		newera.appendChild(newertxt);
+		newera.setAttribute('href','http://www.math.ucla.edu');
+		
+		newp.insertBefore(newera,newa);
+
+        alert(newa.getAttribute('href'));		
+		
+	  
+	  29.2.2 Properties: note that "node" also includes text
+	  and whitespace
+	  
+	  nodeName: returns the name of a node
+	  
+	  parentNode: returns the parent node
+	  
+	  childNodes: returns array of child nodes
+	  
+	  firstChild: returns the first child
+	  
+	  lastChild: returns the last child
+
+      value: the value property (ex: what is filled in in a text box)
+
+      innerHTML: the HTML inside an element	  
+	  
+	  style: the CSS styling
+	    document.getElementById('someId').style.backgroundColor = "red";
+		
+		use camel casing for items that would otherwise have hyphens -
+		
+	  checked: whether a checkbox/radio button was selected - true if selected
+ 
+
+30. Animations
+  30.1 setTimeout
+    - use this function to call another function with a delay
+	specified in millisceonds (ms).
+	- 1 s = 1000 ms
+	
+	setTimeout( function(){ alert('hi');}, 5000); // delays 5000 ms
+	
+	- to clear the timeout, store in a variable and clear it:
+	
+	var greet = setTimeout( function() { alert('hi');} , 10000);
+	clearTimeout(greet);
+
+  30.2 setInterval  
+    - use this function to call another function repeatedly with
+	a delay specified in ms.
+	
+	setInterval( function(){ alert('hi');}, 5000);
+	
+	- to clear the interval, store in variable and clear
+	
+	var greet = setInterval( function() { alert('hi');} , 10000);
+	clearInterval(greet);
+
+	
+31. Cookies
+  31.1 Idea
+    - store user data (name, preferences, password) in a text file on browser
+	- by default erased when browser closed but other time lengths can be set
+	- cookies are name=value; pairs all separated by semi-colons
+	
+  31.2 Cookie Creation
+    - Specify via document.cookie = ...
+	
+	Example: Prompt a user for their name with prompt box:
+	
+	// Get the name
+	var name = prompt("Tell me your name. I'll remember this forever: ", ""); // message given and initial value
+	
+	var forgetTime = new Date(); // create new date object
+	
+	forgetTime.setTime( forgetTime.getTime() + 100000*24*60*60*1000); // set time to 100000 years in the future (giving time in ms)
+	forgetTime = forgetTime.toGMTString();
+	
+	document.cookie = "username="+name+"; expires=" + forgetTime + ";"; // sets a cookie of: username=[Name]; expires=[100K YEARS FROM NOW];
+	
+	// could just do document.cookie = "username="+name+";"; and be forgotten when browser closes
+	
+	- Can add more cookies:
+	  document.cookie = "otherParameter=OtherValue; [expires=someOtherTime]";
+	  
+  31.3 Deleting Cookies
+    - Specify a time in the past
+	
+	var forgetTime = new Date(); // create new date object
+	
+	forgetTime.setTime( forgetTime.getTime()  -1); // set time to 100000 years in the future (giving time in ms)
+	forgetTime = forgetTime.toGMTString();
+  
+    document.cookie = "username=; expires=" + forgetTime + ";";
+
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>A Title</title>
+  
+   
+  <script type="text/javascript">
+  
+    window.onload = function(){
+	
+	
+		
+			
+	
+	
+	fin = "";
+ 
+    document.getElementById('output').innerHTML = fin;
+	
+    
+	
+	
+	};
+	
+		
+    	
+	  function clicked(){
+	  
+		  
+	  }
+	  
+     function showCookie(){
+	   
+	 }
+	
+	
+	
+	
+	
+	
+	
+  </script>
+  
+  
+</head>
+
+<body>
+
+<section id="topBit">
+
+</section>
+
+
+
+<p name="ps">A</p>
+<p name="ps">B</p>
+<p name="ps">C</p>
+
+
+
+<div id="outer">
+  <div id="inner"><p id="innerinnerp">Test!</p></div>
+</div>
+
+<input type="text" id="userInput" />
+<input type="button" onclick = "clicked();" value = "click" />
+<input type="button" onclick= "showCookie();" value="show" />
+
+<pre>
+  <p id="output">
+  </p>
+</pre>
+  
+<p id="toSwap">
+Lorem ipsum dolor sit amet, iaculis felis interdum praesent cum, eget 
+ipsum. Do accumsan et pulvinar, habitant aliquam, libero urna cras non
+ sit malesuada arcu, libero facilisis quis id senectus dui semper.
+</p>
+<p> 
+ Maecenas donec, in libero in tincidunt lorem ac, sed phasellus est 
+ praesent tortor. Malesuada habitasse a imperdiet vivamus sit, sit id 
+ inventore in. Ac et et praesent, in fermentum netus suspendisse elit 
+ blandit ac. Aenean ut duis quam, elementum nec iaculis nulla mollis 
+ sed, etiam justo mattis sed magna eget vulputate. Qui leo diam dignissim.
+ Faucibus placerat quisque, urna ultrices vel. In mi amet luctus 
+ nullam luctus, egestas elit id vivamus facilisis cum elit. Curabitur mauris, nam quam tempor et nec at dui, suspendisse condimentum sollicitudin dictumst malesuada tempus, porttitor quis tortor, felis eget per felis. Amet integer vestibulum mauris viverra non, ligula risus felis.
+</p>
+
+
+
+</body>
+
+
+</html>

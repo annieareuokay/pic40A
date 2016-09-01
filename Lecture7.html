@@ -1,0 +1,128 @@
+
+<!--
+
+11. Forms
+  11.9 actions  
+  - inside of the forms (or on specific buttons, etc.), we can specify actions to take
+  -the action attribute calls a script - usually some .php script 
+  -the onsubmit attribute specifies what to do when a form is submitted 
+  -many others exist... More when we discuss JavaScript C:
+
+12. CSS
+  12.1 Brief overview
+    This is a way to specify EXACTLY how different html elements iwll display in a browser window. 
+    All browsers have some default, but we can change how the page is rendered. 
+
+  12.2 Inline
+    - specify where the element is created how its contents should be rendered 
+    - NOT ADVISABLE if we ever did want to change how these inline specifications render a document. We have to change them individually. (Example below, anyway). 
+    - use style attribute:
+      style = "property: value; other property: otherValue; "
+
+  12.3 Within document
+    - In the head element, we add a style tag. 
+      <style> 
+        someSelectors{
+          properties...
+        }
+
+        someOtherSelectors{
+        moreProperties...
+        }
+      </style>
+
+  12.4 External
+    - An external file has the same format as what goes inside of the style tag. 
+    - We link to the external file with a link element: 
+      
+      <link type="text/css" rel="stylesheet" href="relativeUrl, or URL" media= "all" /> 
+
+      - type: tells the browser we're looking at a CSS file. 
+      - rel: says that it is for styling 
+      - href: where the CSS code can be found 
+      - media: 'all' for all forms of media; 'screen' if just on a computer screen,... 
+
+  12.5 divs and spans
+    - Used to segregate or block off chunks of HTML to have a specific format. 
+    - divs: by default are stacked - one on top of the other
+    - spans: by default are inline - one next to the other
+
+13. Selectors
+  13.1 Class (gives context for something):
+    .className{
+      properties
+    }
+  13.2 Element:
+    elementName{
+      properties
+    }
+  13.3 Id (very specific; should be unique for each element):
+    #idName{
+      properties separated by ; 
+    }
+  13.4.1 Specifying Stuff
+    - Can be more specific by listing the ids/classes/elements in order: 
+      p a .className <--describes all elements with class name of className that are inside of an anchor that is inside of a p
+
+    Consider multiple cases by listing with commas 
+    -h2, h3 <-- describes all h2 and h3 elements
+
+  13.4 Pseudo-selectors
+
+  13.5 New CSS3 examples  
+
+14. CSS for Text
+
+15. CSS Rules
+  15.1 Inheritance
+  15.2 Precedence
+  15.3 Cascade
+  
+16. CSS for Colours
+
+17. CSS for Positioning
+
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Lecture7</title>
+
+  <!--<style>
+    p {
+      font-size: 6em; 
+    }
+    p a{
+      font-size: 0.5em; 
+    }
+  </style> -->
+
+  <link rel="stylesheet" type="text/css" href="lecture7.css"/>
+</head>
+
+<!-- <form action="exampleThatWontWork.php"> -->
+<form onsubmit="alert('hello.');">
+  <input type="submit" value="Submit form" /> 
+</form>
+
+<body>
+  <p = style="font-weight: 900; font-family:'Comic Sans MS';"> 
+  BLAH blah BLAH BLAH blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah  
+  <a href="#"> Takes you nowhere... </a> 
+
+  <h3>ABC</h3>
+  <h4>DEF</h4>
+  
+  </p>
+  <article>
+    <h2 id="h2id">Title of our article</h2>
+    <p>Paragraph number one.</p>
+    <p class="important">Paragraph number two.</p>
+  </article>
+
+</body>
+
+
+</html>

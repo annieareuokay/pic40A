@@ -1,0 +1,102 @@
+<!DOCTYPE html> 
+<html>
+<head>
+	<title> Simple Calculator </title>
+
+	<style>
+    
+      fieldset{
+      	display:inline;
+      	width: 40px;  
+    }
+
+
+  </style> 
+
+  <script type="type/javascript">
+  	window.onload function(){
+  		alert('Welcome to the simple calculator!');}
+
+  	}
+
+  	function operation(){
+  		var ans = document.getElementById("output"); 
+  		if (document.getElementById("add").checked){
+  			ans.value=calculate('add'); 
+  		}
+  		if(document.getElementById("subtract").checked){
+  			ans.value = calculate('subtract'); 
+  		}
+  		if (document.getElementById("multiply").checked){
+  			ans.value= calculate('multiply'); 
+  		}
+  		if (document.getElementById("divide").checked){
+  			ans.value = calculate('divide'); 
+  		}
+  	}
+
+  	function calculate(action){
+  		var num1 = document.getElementById("userInput").value; 
+  		var num2 = document.getElementById("userInput2").value;
+  		var result; 
+
+  		switch(action){
+    case 'add':
+        result= parseInt(num1)+parseInt(num2);
+        break;
+
+    case 'subtract':
+        result= num1-num2;
+        break;
+
+    case multiply:
+        result= num1*num2;
+        break;
+
+    case divide:
+        result= num1/num2;
+        break;
+}
+return result;
+}
+
+
+  	// 	if (action = 'add')
+  	// 		{result = parseInt(num1)+parseInt(num2);}
+  	// 	if (action = 'subtract')
+  	// 		{result = num1-num2;}
+  	// 	if (action = 'add')
+  	// 		{result = num1*num2;}
+  	// 	if (action = 'add')
+  	// 		{result = num1/num2;}
+  	// 	return result; 
+  	// }
+
+
+
+
+  </script>
+
+</head>
+<body>
+<header>
+	<h1>Simple Calculator</h1>
+</header>
+
+<!-- <form action=""> -->
+First value: <input type="text" id="userInput" />
+<fieldset>
+	+ <input type="radio" name="calculate" value="add"></br>
+	- <input type="radio" name="calculate" value="subtract"></br>
+	&times; <input type="radio" name="calculate" value="multiply"></br>
+	&divide; <input type="radio" name="calculate" value="divide"></br>
+</fieldset>
+
+Second value: <input type="text" id="userInput2" />
+<input type="button" onclick = "operation();" value = "=" /> Result: 
+<input type="text" id="output" readonly/>
+<!-- </form>
+ -->
+
+</body>
+</html>

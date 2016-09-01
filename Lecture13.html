@@ -1,0 +1,240 @@
+
+<!--
+
+22. JavaScript Printing
+  22.1 Alert
+    - Can cause an alert box to be triggered when the body
+	is loaded:
+	<body onload = "alert('ahoy!');">
+	
+	- onload is an event that, when it happens, invokes
+	a script. In this case an alert box.
+	
+	- alert('stuff goes here');
+	is a JS command to display the message inside the quotes
+	
+	- can use single or double quotes interchangeably
+		
+	- observe that the command ends in a semi-colon
+	
+  22.2 Modifying html through JS
+    
+	- can define a function (more later) to swap text
+	
+	- the function is called changeText
+	
+	- it is triggered by adding an onclick event to, in this case,
+	a button:
+	
+	  <input type="button" onclick="changeText();" />
+	  
+	- basic idea:
+	
+	  document.getElementById('someId')
+	    returns a reference to the element with the given id
+		
+		can store this as a variable, or use this to modify the 
+		contents such as with the innerHTML function:
+		
+		document.getElementById('someId').innerHTML = "content";
+		
+23. Syntax and Formatting
+  23.1
+    - Statements end in a semi-colon
+    - Spacing irrelevant, but useful for programmer
+	
+  23.2
+    - Comments same as C++: // for single line or /* multiline */
+		
+24. Variables
+  24.1 Variable Definitions
+    24.1.1 The var keyword:
+	
+	  - defines a variable with local scope within a function,
+ 	  etc.
+      - for (var i=0; i < num; ++i)
+	  - function simpleFunction() { var s = "abcde"; alert(s);}
+	  
+	24.1.2 Without the var keyword:
+	  
+	  - defines a variable with global scope once created
+	  
+	  x = -8.1;
+
+  24.2 Variable Types
+    24.2.1 Number
+	  - for all numbers, integers, doubles, positive, negative
+	  
+	  - var x = 7.73;
+	  - var y = -1;
+	 
+	24.2.2 String
+	  24.2.2.1 Gist of it
+	  - for text, use strings	  
+	  - similar to C++ strings, but ' and " are interchangeable
+	  - Opening ' or " must be matched by closing ' or ",
+	    respectively
+	  
+	  - var s1 = "hello, ";
+	  - var s2 = 'world';
+	  - var s3 = s1 + s2;
+	  
+	  24.2.2.2 Escape sequences
+	   - Newlines, tabs, etc. \n \t
+	     - will not display by default in HTML without pre
+	   - Quotes, \', \"
+	  
+	  
+	24.2.3 Boolean
+	  24.2.3.1 Context
+	  - true or false values
+	  
+	  - var x = true;
+	  - if(x) { alert('true'); }
+	  
+	  24.2.3.2 Conditionals
+	    - Usual from C++: >, >=, <, <=, &&, ||, !
+		- For equality, use ===
+		- For inequality, use !==
+		- The == and != are "evil" and obey truthy/falsy logic
+		  - falsy: false, 0, "", null, undefined, NaN
+		  - truthy: anything not falsy, including the
+		  string "undefined". Even 0=="0" is truthy
+	  
+	24.2.4 Array
+	  - an array: dynamic size like vector
+      - indexed from 0	  
+	  - can store ANYTHING	  
+	  - one array could store a number, a function, and a string
+	  as its 3 entries
+	  
+	    var arr = [3, function(s){ alert(s);}, "computer" ];
+		arr[1]('ahoy');
+	  
+	24.2.5 Object
+	  - can store data structures, similar to C++
+	  
+	24.2.6 Undefined
+	  - if a variable is created but not initialized it is
+	  undefined
+	  
+	  - If a variable is set to the output of an expression
+	  that makes no sense, it is also undefined
+		
+	24.2.7 typeof
+	  typeof x
+	  returns the type of x as a string "undefined", "number",
+	  etc.
+	
+25. Control Flow
+  25.1 If Statements
+    - Basically same as C++
+	
+	if (x > 0)
+	  alert('x>0');
+	  
+	if (y > x)
+	  alert('y>x');
+	else if(y < x)
+	  alert('y<x');
+	else
+	  {
+	    alert('They are equal...');
+		alert('And both are ' + x);
+	  }
+
+26. Functions, Objects, and Constructors
+
+27. Arrays 
+
+28. Document Object Module
+
+29. Animations
+
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>A Title</title>
+  
+   <!-- what happens when the page is loaded -->
+  <script type="text/javascript">
+    window.onload = function(){
+		
+		var x=7; //7 gets converted to a string
+		var y= "eight"; //can concatenate
+		var fin1 = x+y; 
+		x=9; 
+		y="8";
+		var fin2= x+y;
+		var fin3= x-y;
+		var fin4= 9*"eight"; 
+		var fin5 = "abc" + "pqr"; 
+		var fin6 = 5+ ""; // safe way to convert number to string
+		var fin7= "7" + 1; //safe way string to number
+	// var final = 'output';
+	// var final = typeof t; 
+  
+    // document.getElementById('output').innerHTML = fin4; // no natural definitn 
+
+    	document.getElementById('output').innerHTML = typeof(fin2 + (typeof fin5)); 
+
+
+	// adding 'var' makes it a local variable, and wouldn't work in this case. 
+
+	init = document.getElementById('toSwap').innerHTML
+		
+	};
+
+	function swap(){
+		if(document.getElementById('toSwap').innerHTML!==init)
+			document.getElementById('toSwap').innerHTML = init; 
+		else
+			document.getElementById('toSwap').innerHTML = 'boo!';
+	}
+	
+	
+	
+  </script>
+  
+  
+</head>
+
+<body>
+
+<div id="outer">
+  <div id="inner"><p id="innerinnerp">Test!</p></div>
+</div>
+
+<input type="button" onclick = "swap();" value = "click" />
+
+<pre>
+  <p id="output">
+  </p>
+</pre>
+  
+<p id="toSwap">
+Lorem ipsum dolor sit amet, iaculis felis interdum praesent cum, eget 
+ipsum. Do accumsan et pulvinar, habitant aliquam, libero urna cras non
+ sit malesuada arcu, libero facilisis quis id senectus dui semper.
+</p>
+<p> 
+ Maecenas donec, in libero in tincidunt lorem ac, sed phasellus est 
+ praesent tortor. Malesuada habitasse a imperdiet vivamus sit, sit id 
+ inventore in. Ac et et praesent, in fermentum netus suspendisse elit 
+ blandit ac. Aenean ut duis quam, elementum nec iaculis nulla mollis 
+ sed, etiam justo mattis sed magna eget vulputate. Qui leo diam dignissim.
+ Faucibus placerat quisque, urna ultrices vel. In mi amet luctus 
+ nullam luctus, egestas elit id vivamus facilisis cum elit. Curabitur mauris, nam quam tempor et nec at dui, suspendisse condimentum sollicitudin dictumst malesuada tempus, porttitor quis tortor, felis eget per felis. Amet integer vestibulum mauris viverra non, ligula risus felis.
+</p>
+
+
+
+</body>
+
+
+</html>

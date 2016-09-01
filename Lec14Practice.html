@@ -1,0 +1,86 @@
+fin = list of all the numbers (ex. 1, 2, 6, 24, 120) and say that the 120 is the drop off
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>A Title</title>
+  
+   
+  <script type="text/javascript">
+    window.onload = function(){
+
+    	var arr = []; 
+	
+   //    arr[1] = "car";
+	  // arr[3] = 5;
+	  // arr[4] = false;
+	  // arr.push('300');
+
+     // 	var j = 10;
+	 //  do{
+	 //    alert(j + " bottles of beer on the wall, " + j + 
+		// "bottles of beer. You take one down, pass it around, " +
+		// --j + " bottles of beer on the wall.");
+	 //  } while(j > 0);
+
+	 // // var i = 8;
+	 // // fin = ++i; 
+	 
+	 // var msg = "Chocolate is yummy.";
+	 //  // fin = ""; // our message to display
+	  
+	 //  // for(var i=0; i < msg.length; ++i)
+	 //  //   fin += msg[i] + "<br/>";
+
+	 //  fin = ""; 
+	 //  for (var i = msg.length-1; i >= 0; --i)
+	 //  	fin  += msg[i]; 
+	
+ 
+    document.getElementById('output').innerHTML = fin;
+	
+    init = 	document.getElementById('toSwap').innerHTML; 
+		
+	};
+	
+	function swap(){
+	  if(document.getElementById('toSwap').innerHTML !== init)
+	    document.getElementById('toSwap').innerHTML = init;
+	  else
+	    document.getElementById('toSwap').innerHTML = 'boo!';
+	
+	
+	}
+	
+	function takeInput(){
+	  alert('Will double your answer each iteration for three iterations');
+	  var userin = document.getElementById('userInput').value;
+	  for (var i=0; i < 3; ++i){
+	    userin = alertIt(userin*1);
+	  }
+
+	  function alertIt(){
+	  alert(arguments[0]);
+      return arguments[0]+arguments[0];	
+	}
+	
+  </script>
+  
+  
+</head>
+
+<body onload>
+
+<div id="outer">
+  <div id="inner"><p id="innerinnerp">Test!</p></div>
+</div>
+
+<input type="text" id="userInput" />
+<input type="button" onclick = "takeInput();" value = "click" />
+
+<pre>
+  <p id="output">
+  </p>
+</pre>

@@ -1,0 +1,237 @@
+
+<!--
+
+30. Animations/Timing
+  30.1 setTimeout
+    - use this function to call another function with a delay
+	specified in millisceonds (ms).
+	- 1 s = 1000 ms
+	
+	setTimeout( function(){ alert('hi');}, 5000); // delays 5000 ms
+	
+	- to clear the timeout, store in a variable and clear it:
+	
+	var greet = setTimeout( function() { alert('hi');} , 10000);
+	clearTimeout(greet);
+
+  30.2 setInterval  
+    - use this function to call another function repeatedly with
+	a delay specified in ms.
+	
+	setInterval( function(){ alert('hi');}, 5000);
+	
+	- to clear the interval, store in variable and clear
+	
+	var greet = setInterval( function() { alert('hi');} , 10000);
+	clearInterval(greet);
+
+	
+31. Cookies
+  31.1 Idea
+    - store user data (name, preferences, password) in a text file on browser
+	- by default erased when browser closed but other time lengths can be set
+	- cookies are name=value; pairs all separated by semi-colons
+	
+  31.2 Cookie Creation
+    - Specify via document.cookie = ...
+	
+	Example: Prompt a user for their name with prompt box:
+	
+	// Get the name
+	var name = prompt("Tell me your name. I'll remember this forever: ", ""); // message given and initial value
+	
+	var forgetTime = new Date(); // create new date object
+	
+	forgetTime.setTime( forgetTime.getTime() + 100000*24*60*60*1000); // set time to 100000 years in the future (giving time in ms)
+	forgetTime = forgetTime.toUTCString();
+	
+	document.cookie = "username="+name+"; expires=" + forgetTime + ";"; // sets a cookie of: username=[Name]; expires=[100K YEARS FROM NOW];
+	
+	// could just do document.cookie = "username="+name+";"; and be forgotten when browser closes
+	
+	- Can add more cookies:
+	  document.cookie = "otherParameter=OtherValue; [expires=someOtherTime]";
+	  
+  31.3 Deleting Cookies
+    - Specify a time in the past
+	
+	var forgetTime = new Date(); // create new date object
+	
+	forgetTime.setTime( forgetTime.getTime()  -1);
+	forgetTime = forgetTime.toUTCString();
+  
+    document.cookie = "username=; expires=" + forgetTime + ";";
+	
+	
+  31.4 Useful String Operations when Deaing with Multiple Cookies
+    - substr(start, length)
+	
+	- substring(start,[end]):
+	  - end is optional: default goes from start to end of string
+	  - starts at start, does not include end
+	 -indexOf(substring):
+	 	- retruns the index of a substring that may appear in a larger string: if it appears, the value is the first index where that substring appears. 
+
+32. JQuery
+  32.1 Motivation
+    - JavaScript library that "rounds the sharp corners" of cross-browser
+    performance.
+
+    - Syntax is much simpler for some items
+
+    - Has many built in functions/methods, such as being able to modify
+    all elements of a class simultaneously, etc.
+	
+	- It is compatible with JavaScript because IT IS JAVASCRIPT :-)
+
+  32.2 Basics
+    32.2.1 The document and selectors
+	  - Given the variable name $ (yes, $ is a valid variable name for JS)
+	  
+	  - $('tag'): refers simultaneously to ALL elements of a given type
+	  - $('.class'): refers simultaneously to ALL elements of the class
+	  - $('#id'): refers to the element with given id
+	  
+    32.2.2 Special Events
+	  32.2.2.1 Document Ready
+        - When the DOM has fully loaded, the document is ready
+        - To specify what to do when the page is ready:
+          $( function() {
+		    // stuff!
+		  });	  
+		
+	    - Give an anonymous function as the oncall function for when the
+	    document is ready: this is shorthand for specify a .ready event
+		
+	  32.2.2.2 Listeners
+	    - click(*): when item is clicked, specify * function for example:
+		
+		  $('#dareToClick').click( function() {
+		    alert("Boo!");  
+		  });
+		  
+		- hover(*,**): when item is hovered over, specify * function
+		when "moving in" and ** when "moving out"
+		
+		- fadeOut() and fadeIn(): make item(s) fade out or in
+		
+		- many others: mouseover, mouseleave, mousin, ...
+
+	32.3 Modifying HTML and CSS
+	  32.3.1 HTML Attributes
+	    text
+		
+		html
+		
+		addClass
+		
+		attr
+	  
+	  
+	  32.3.2 CSS Styles
+	    css
+	  
+	32.4 Advanced Selectors
+	  - more combinations do exist
+	  
+	  contains
+	  
+	  empty
+	  
+	  
+	  
+    
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>A Title</title>
+  
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.1.min.js"></script>
+   
+  <script type="text/javascript">
+
+  	var greet; 
+  	var annoying; 
+    
+    $(function() (
+    	alert ('hi');
+
+    	));
+
+ //    window.onload = function(){
+	
+	// var forgetTime = new Date(); //
+	// forgetTime.setTime(forgetTime.getTime() =1); 
+	// forgetTime = forgetTime. toUTCString(); 
+	// document.cookie - "username; expires" + forgetTime + ";"; 
+
+	// alert
+
+	
+	// };
+	
+	// function clicked(){
+	  
+	// }
+		
+	
+  </script>
+  
+  
+</head>
+
+<body>
+
+<section id="topBit">
+
+</section>
+
+<section>
+<h1 id="dareToClick">Dare you to click this!</h1>
+
+<p name="ps">A</p>
+<p name="ps">B</p>
+<p name="ps">C</p>
+
+
+
+<div id="outer">
+  <div id="inner"><p id="innerinnerp">Test!</p></div>
+</div>
+
+<input type="text" id="userInput" />
+<input type="button" onclick = "clicked();" value = "click" />
+<input type="button" onclick= "showCookie();" value="show" />
+
+<pre>
+  <p id="output">
+  </p>
+</pre>
+  
+<p id="toSwap">
+Lorem ipsum dolor sit amet, iaculis felis interdum praesent cum, eget 
+ipsum. Do accumsan et pulvinar, habitant aliquam, libero urna cras non
+ sit malesuada arcu, libero facilisis quis id senectus dui semper.
+</p>
+<p> 
+ <span class="aclass">Maecenas donec</span>, in libero <span class="aclass">in tincidunt lorem ac, sed phasellus est 
+ praesent tortor.</span> Malesuada habitasse a imperdiet vivamus sit, sit id 
+ inventore in. Ac et et praesent, in fermentum netus suspendisse elit 
+ blandit ac. Aenean ut duis quam, elementum nec iaculis nulla mollis 
+ sed, etiam justo mattis sed magna eget vulputate. Qui leo diam dignissim.
+ Faucibus placerat quisque, urna ultrices vel. In mi amet luctus 
+ nullam luctus, egestas elit id vivamus facilisis cum elit. Curabitur mauris, nam quam tempor et nec at dui, suspendisse condimentum sollicitudin dictumst malesuada tempus, porttitor quis tortor, felis eget per felis. Amet integer vestibulum mauris viverra non, ligula risus felis.
+</p>
+
+<section>
+
+
+</body>
+
+
+</html>

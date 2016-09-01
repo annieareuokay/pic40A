@@ -1,0 +1,104 @@
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Simple Calculator</title>
+  
+  <style>
+
+      h1{
+        margin: 10px;
+    }
+    fieldset{
+        display:inline;
+        width: 40px;  
+    }
+
+    div{
+        position: absolute;
+        display: inline;
+        margin-top: 66px;
+        padding-left: 10px;
+    }
+
+    #userInput, #userInput2, #b{
+        margin: 10px;
+    }
+
+
+</style> 
+
+<script type="text/javascript">
+ window.onload = function(){
+    alert('Welcome to JavaScript calculator!');
+}
+
+function operation() {
+    var ans=document.getElementById("answer");
+    if (document.getElementById("add").checked) {
+        ans.value= calculate('add');
+    }
+    if (document.getElementById("subtract").checked) {
+        ans.value= calculate('subtract');
+    }
+    if (document.getElementById("multiply").checked) {
+        ans.value= calculate('multiply');
+    }
+    if (document.getElementById("divide").checked) {
+        ans.value= calculate('divide');
+    }
+    document.getElementById("answer").innerHTML=ans.value;
+
+}
+function calculate(action){
+    var num1 = document.getElementById("userInput").value;
+    var num2 = document.getElementById("userInput2").value;
+            //console.log(action);
+            // console.log(num1);
+            // console.log(num2);
+            var result;
+            switch(action){
+                case 'add':
+                result= parseInt(num1)+parseInt(num2);
+                break;
+                case 'subtract':
+                result= num1-num2;
+                break;
+                case 'multiply':
+                result= num1*num2;
+                break;
+                case 'divide':
+                result= num1/num2;
+                break;
+            }
+
+
+            return result;
+        }
+
+    </script>
+
+    <title>
+        Calculator
+    </title>
+</head>
+
+<body>
+    <h1>Simple Calculator</h1>
+    <form>
+      First value:<input type="text" id="userInput" />
+      <fieldset>
+          +<input type="radio" name="group1" id="add" value="add"/><br/>
+          -<input type="radio" name="group1" id="subtract" value="subtract"/><br/>
+          &times;<input type="radio" name="group1" id="multiply" value="multiply"/><br/>
+          &divide;<input type="radio" name="group1" id="divide" value="divide"/>
+      </fieldset>
+      Second value:<input type="text" id="userInput2"/>
+      <input type="button" id="b" value="Compute" onClick="operation();"/>Result:
+<!--       <input type="text" id="answer" readonly/>
+-->     <div id="answer"></div>
+
+
+
+</form>
+</body>
+</html>

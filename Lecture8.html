@@ -1,0 +1,191 @@
+
+<!--
+13. Selectors
+  13.6 Pseudo-selectors:
+    select elements, ids, etc. that have been moused over, clicked on,
+	etc.
+	
+	p:hover <-- this selects a paragraph that the user is hovering over
+    :visited <-- if a link has been clicked on (visited)
+	:link <-- unvisited link
+	... many others
+	
+	http://www.w3schools.com/css/css_pseudo_classes.asp  
+  
+  13.7 A little Document Object Model Theory
+    - when an element is created, the elements embedded within it
+	are its children
+	<article>
+	  <p id="id1">...<a>some anchor</a> ... </p>
+	  <p id="id2">...</p>
+	</article>
+	- p with id of id1 is the first child of the article
+	- the anchor inside of that p is its child
+	- p with id of id2 is the second child of the article
+  
+  13.8 New CSS3 examples:
+    p:first-of-type <-- selects all paragraphs that are the
+	first child of their parent element
+	
+	Can have a border-radius property to round corners of images.  
+
+14. CSS for Text
+  14.1: size
+    - font-size tells how big the font should appear
+	- can use em (these units are relative to the normal text size
+	so 2em is twice as big, 0.5em is half as big, etc.)
+	- can use pt (point value of a font)
+	- can use percentage, too.
+  
+  14.2: weight (boldness)
+    - range from 100 to 900 with 100 thin and 900 very thick
+	- could also just write 'bold'
+  
+  14.3: family
+    - give a list of fonts we want with our first choice, second 
+	choice, third choice, etc. and also give a generic font family
+	if those fail.
+
+  14.4 Resource
+    http://www.w3schools.com/cssref/pr_font_font.asp	
+
+
+15. CSS Rules
+  15.1 Inheritance
+    - many properties of an element (font-family, etc.) are inherited
+	from its parent element
+	
+  15.2 Precedence
+    - there is an order in which CSS styles are parsed and overwritten...
+	5.2.1 Default browser CSS
+	5.2.2 User's preferences
+	5.2.3 CSS Author for the page: their preferences overwrite the
+	user's default settings
+	5.2.4 Author can overwrite their own CSS by declaring something as
+	!important;
+	5.2.5 User's preferences that are deemed important
+	
+  15.3 Specificity
+    - being specific about what we style is important, and
+	there is an algorithm to calculate the 'specificity' of
+	a styling: the higher specificity trumps the lower one.
+	- if two items have equal specificity then the one that
+	comes last wins.
+	
+	- for each element that is specified, give +1
+	- for each class/pseudo-class, give +10
+	- for each id that is given, give +100
+	- for each inline styling, give +10000
+
+	span: stuff stays inline but can be given a styling
+	
+	div: like 'division' stacks things, and can also be given
+	a styling
+	
+	
+  15.3 Cascade
+  
+16. CSS for Colours
+
+17. CSS for Positioning
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-9" />
+  <title>A Title</title>
+  
+  <!-- just to avoid going back and forth: ideally in separate doc -->
+  <style>
+    p:hover{
+	  color: red;
+	  font-weight: bold;
+	  font-family: 'Arial', 'Comic Sans MS', 'Times New Roman', serif;
+	}
+	
+	P:first-of-type{
+	  font-size: 150%;
+	}
+	
+	img{
+	  border-radius: 100px;
+	}
+	
+	/* #span2{
+	  color: green;
+	}
+	
+	span span{
+	  color: orange;
+	}
+	
+	#span1{
+	  color: pink;
+	} */
+	
+	span:hover{
+	  color: yellow;
+	}
+	
+  </style>
+  
+  
+</head>
+
+<body>
+<h1><span style="font-size: 2em">Big</span> Header</h1>
+<p>
+<img src="doge.png" alt="Smiley" width="200px" />
+Lorem ipsum dolor sit amet, iaculis felis interdum praesent cum, eget 
+ipsum. Do accumsan et pulvinar, habitant aliquam, libero urna cras non
+ sit malesuada arcu, libero facilisis quis id senectus dui semper.
+ Look here, some anchor: <a href="#">Some anchor</a>.
+</p>
+<p> 
+ <span id="span1"> Maecenas <span id="span2">donec, in libero in tincidunt lorem ac, sed phasellus est 
+ praesent tortor.</span> Malesuada</span> habitasse a imperdiet vivamus sit, sit id 
+ inventore in. <div>Ac et et praesent,</div> <div>in fermentum</div> netus suspendisse elit 
+ blandit ac. Aenean ut duis quam, elementum nec iaculis nulla mollis 
+ sed, etiam justo mattis sed magna eget vulputate. Qui leo diam dignissim.
+ Faucibus placerat quisque, urna ultrices vel. In mi amet luctus 
+ nullam luctus, egestas elit id vivamus facilisis cum elit. Curabitur mauris, nam quam tempor et nec at dui, suspendisse condimentum sollicitudin dictumst malesuada tempus, porttitor quis tortor, felis eget per felis. Amet integer vestibulum mauris viverra non, ligula risus felis.
+</p>
+
+<p>
+Lorem ipsum dolor sit amet, iaculis felis interdum praesent cum, eget 
+ipsum. Do accumsan et pulvinar, habitant aliquam, libero urna cras non
+ sit malesuada arcu, libero facilisis quis id senectus dui semper.
+</p>
+<p> 
+ Maecenas donec, in libero in tincidunt lorem ac, sed phasellus est 
+ praesent tortor. Malesuada habitasse a imperdiet vivamus sit, sit id 
+ inventore in. Ac et et praesent, in fermentum netus suspendisse elit 
+ blandit ac. Aenean ut duis quam, elementum nec iaculis nulla mollis 
+ sed, etiam justo mattis sed magna eget vulputate. Qui leo diam dignissim.
+ Faucibus placerat quisque, urna ultrices vel. In mi amet luctus 
+ nullam luctus, egestas elit id vivamus facilisis cum elit. Curabitur mauris, nam quam tempor et nec at dui, suspendisse condimentum sollicitudin dictumst malesuada tempus, porttitor quis tortor, felis eget per felis. Amet integer vestibulum mauris viverra non, ligula risus felis.
+</p>
+
+<p>
+Lorem ipsum dolor sit amet, iaculis felis interdum praesent cum, eget 
+ipsum. Do accumsan et pulvinar, habitant aliquam, libero urna cras non
+ sit malesuada arcu, libero facilisis quis id senectus dui semper.
+</p>
+<p> 
+ Maecenas donec, in libero in tincidunt lorem ac, sed phasellus est 
+ praesent tortor. Malesuada habitasse a imperdiet vivamus sit, sit id 
+ inventore in. Ac et et praesent, in fermentum netus suspendisse elit 
+ blandit ac. Aenean ut duis quam, elementum nec iaculis nulla mollis 
+ sed, etiam justo mattis sed magna eget vulputate. Qui leo diam dignissim.
+ Faucibus placerat quisque, urna ultrices vel. In mi amet luctus 
+ nullam luctus, egestas elit id vivamus facilisis cum elit. Curabitur mauris, nam quam tempor et nec at dui, suspendisse condimentum sollicitudin dictumst malesuada tempus, porttitor quis tortor, felis eget per felis. Amet integer vestibulum mauris viverra non, ligula risus felis.
+</p>
+
+
+</body>
+
+
+</html>

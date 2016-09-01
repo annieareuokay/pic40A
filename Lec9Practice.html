@@ -1,0 +1,61 @@
+<!-- div section: 200px tall, 500 px wide with 3 divs inside with large text "A", "B", and "C". The outer div should have colors other than white -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-9" />
+  <title>COLORS</title>
+  <style>
+
+  	body{
+  		font-size: 2em;
+  		text-indent: 10px;
+  	}
+
+  	#div1{
+  		
+  		background-color: rgb(0, 255, 255);
+		height:200px;
+		width: 500px;
+		left: 30px;
+		top: 10px;
+		position: relative;
+  	}
+
+  	#div2{
+  		background-color: rgba(255, 204, 255, 0.6);
+  		position: absolute; 
+		height:150px;
+		width: 400px;
+		left: 30px;
+		top: 30px;
+
+  	}
+
+  	#div3{
+  		background-color: rgba(204, 255, 102, 0.6);
+  		position: absolute;
+		height:100px;
+		width: 300px;
+		left: 30px;
+		top: 30px;
+
+  	}
+  </style>
+ </head>
+
+ <body>
+ 
+ <div>
+ 	<div id="div1">A
+ 		<div id="div2"> B
+ 			<div id="div3"> C
+ 				
+ 			</div>
+ 		</div>
+ 	</div>
+ </div>
+ 
+ </body>
+ </html>

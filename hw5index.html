@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Book Reviews</title>
+
+  <style>
+
+  #stuffs{
+  	border: 1px solid black;
+  }
+  </style>
+</head>
+<body>
+<head>
+<h1>Book Reviews</h1>
+</head>
+
+<fieldset>
+<form action="HW5.php" method="POST">
+	<label> Which book would you like to review?</label>
+	<select id="dropdown" name="bookname">
+		<option value="Book 1" name="Book1">Book 1</option>
+		<option value="Book 2" name="Book2">Book 2</option>
+		<option value="Book 3" name="Book3">Book 3</option>
+	</select>
+	<hr/>
+
+	<label>How would you rate this book?</label>
+		1(bad)<input type="radio" name="rating" value="1">
+		2<input type="radio" name="rating" value="2">
+		3<input type="radio" name="rating" value="3">
+		4<input type="radio" name="rating" value="4">
+		5(great)<input type="radio" name="rating" value="5">
+		<hr/>
+
+	<label>What words describe this book to you?</label>
+		funny<input type="checkbox" name="describe[]" value="funny">
+		inspiring<input type="checkbox" name="describe[]" value="inspiring">
+		sad<input type="checkbox" name="describe[]" value="sad">
+		boring<input type="checkbox" name="describe[]" value="boring"> <hr/>
+
+	<label>Leave a review: </label>
+	<textarea rows="5" cols="30" name="commentSection"></textarea>
+	</fieldset>
+	<fieldset>
+		<label>Name:</label>
+		<input type="text" name="username">
+		<button type="submit" name="post" value="Submit">Submit</button>
+		<button type="reset" value="Reset">Reset</button>
+
+	</fieldset>
+</form>
+
+</fieldset>
+
+
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+#!/usr/local/bin/php
+<!DOCTYPE html>
+<html>
+<body>
+
+<?
+echo "<h1>Hello World!</h1>" . "<br/>";
+echo "<input type=\"button\" value = \"Click me\" onclick=\"alert('hi');\" />";
+?> 
+
+</body>
+</html>

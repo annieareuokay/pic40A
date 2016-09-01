@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Book Reviews</title>
+</head>
+<body>
+<head>
+<h1>Book Reviews</h1>
+</head>
+
+<fieldset>
+<form action="" method="POST">
+	<label> Which book would you like to review?</label>
+	<select id="dropdown">
+		<option value="book1">Book 1</option>
+		<option value="book2">Book 2</option>
+		<option value="book3">Book 3</option>
+	</select>
+	<hr/>
+
+	
+	<label>How would you rate this book?</label>
+		1(bad)<input type="radio" name="rating" value="1">
+		2<input type="radio" name="rating" value="2">
+		3<input type="radio" name="rating" value="1">
+		4<input type="radio" name="rating" value="1">
+		5(great)<input type="radio" name="rating" value="1">
+		<hr/>
+
+	<label>What words describe this book to you?</label>
+		funny<input type="checkbox" name="describe" value="funny">
+		inspiring<input type="checkbox" name="describe" value="inspiring">
+		sad<input type="checkbox" name="describe" value="sad">
+		boring<input type="checkbox" name="describe" value="boring"> <hr/>
+
+	<label>Leave a review: </label>
+	<textarea rows="5" cols="30"></textarea>
+	</fieldset>
+	<fieldset>
+		<label>Name:</label>
+		<input type="text" name="firstname">
+		<button type="submit" value="Submit">Submit</button>
+		<button type="reset" value="Reset">Reset</button>
+
+	</fieldset>
+</form>
+
+</fieldset>
+
+</body>
+</html>

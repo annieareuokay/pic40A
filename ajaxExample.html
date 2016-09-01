@@ -1,0 +1,26 @@
+
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery/jquery-1.7.1.min.js"></script>
+
+<script>
+$(document.ready(function(){
+	$"button".click(function(){
+
+		$("#first".load(text.html)); 
+		///runs second - AJAX is asyncronous
+	$.ajax({
+		url: "text.html#par1", 
+		dataType: "html",
+		success: function(data){
+		$("p").html(data); 
+
+		}
+	})
+	.fail(function(){
+		$("p").html("Request failed!"); 
+	});
+	//this runs first
+	$("p").html ("Will this display?");
+	})
+}))
+
+</script>

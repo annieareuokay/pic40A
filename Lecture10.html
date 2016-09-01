@@ -1,0 +1,283 @@
+
+<!--
+17. CSS for Positioning:
+  17.2 Box Model
+    17.2.1 Gist of it
+    	[CONTENT] <padding> |///border///||<margin>| OTHERSTUFF
+
+	17.2.2 Padding
+		Tells us how far the content is from its border
+		specified as:
+			padding: pixels px; 
+			ex: padding:20px; 
+
+			or give top-, right-, bottom-, and left-padding.
+			ex: padding:20px 0px 40x 0px;
+	17.2.3 Border: describes the properties of what encloses the element and its padding. 
+		ex: border: 3px solid black; 
+
+		gives the thickness of the bulture that is the specific display type and color. 
+
+		can also specify border-style and border width sepearately.
+		can also specify different borders' thicknesses (top, right, bottom, left)
+
+		http://www.w3schools.com/css/css_border.asp
+
+	17.2.4 Margin
+	ex: margin: 20px
+
+	can also speicfy the margin
+
+
+18. Other Tricks:
+  18.1 Floating
+  	Can give an element a float property and then the other p-elements
+  	(usually p-elements) will float around the element, with that element to the left/right. 
+  18.2 Clear
+  	Can make it so that an element cannot have material floating to its left or right, or either with the clear property
+
+  	clear: left;
+  	clear: right; 
+  	clear: both; (usually both)
+
+  18.3 Centering
+  	text-align: center
+
+  	Above will center the text on the page. 
+
+  18.4 Display
+  	Elements have a default display. 
+	inline -- they can be juxtaposed next to each other on the same line.  OR
+	block -- they stack on top of each other (inline). 
+	display: inline; make the elements juxtapose
+	display: block; makes the element stack
+
+  18.5 Z-Index: we can give our images "depth"
+  	Objects must have a position (non-static) in order to use thisproperty
+
+  	Higher z-index values come to the foreground
+  	z-index: 3; 
+  	z-index: 2; 
+  	z-index: 1; 
+  18.6 Text Decoration
+  	text-dcoration: line-through;
+  		(puts a line through the text)
+  	text-decoration: underline
+  		(underlines the text)
+	text-decoration: 
+
+19. HTML and CSS Summary
+
+20. Publishing a Webpage Online  
+
+21. Intro to JavaScript
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-9" />
+  <title>A Title</title>
+  
+  <!-- just to avoid going back and forth: ideally in separate doc -->
+  <style>
+  
+    p{
+	  background-color: green;
+	  text-declaration: underline;
+	}
+  
+    html p span{
+	  color: green;
+	}
+	
+	span span{
+	  color: blue;
+	}
+	
+	p #span2{
+	  color: red;
+	  font-size: 2em;
+	}
+	
+	#span2{
+	  color: yellow;
+	  font-size: 0.5em;
+	}
+	
+	span{
+	  color: rgb(179, 255, 217) !important;
+	} 
+  
+  
+    /*
+    p:hover{
+	  color: red;
+	  font-weight: bold;
+	  font-family: 'Arial', 'Comic Sans MS', 'Times New Roman', serif;
+	}
+	
+	P:first-of-type{
+	  font-size: 150%;
+	}
+	
+	img{
+	  border-radius: 100px;
+	}
+	
+	/* #span2{
+	  color: green;
+	}
+	
+	span span{
+	  color: orange;
+	}
+	
+	#span1{
+	  color: pink;
+	} 
+	
+	span:hover{
+	  color: yellow;
+	} */
+	
+	#div1{
+	  background-color: rgb(0,51,0);
+	  height: 300px;
+	  width: 300px;
+	  position: relative;
+	  left: 30px;
+	  top: 10px;
+	}
+	
+	#div2{
+	  background-color: rgba(0,0,102,0.3);
+	  height: 200px;
+	  width: 200px;
+	  position: absolute;
+	  left: 150px;
+	  top: 50px;
+	}
+	
+	#innerdiv{
+		width:200px;
+		height: 200px;
+		background-color: yellow;
+		padding:20px 0px 40x 0px;
+		border-width: 10px 10px 40px 50px; 
+		border-style: solid;
+		border-color: black;
+		/*margin*/
+		margin: 10px;
+		/*margin-left: auto;
+		margin-right: auto;*/
+		float:left;
+	}
+
+	#outerdiv{
+		background-color: red; 
+		width: 400px;
+		height: 400px;
+		z-index: 2;
+	}
+
+	.clear{
+		clear:both; /*nothing can float to the left or right. */
+	}
+
+	#toCenter{
+		text-align: center;
+	}
+
+	/*p{
+		display:inline;
+	}
+
+	img{
+		display: block;
+	}*/
+
+	#doge{
+		position: relative;
+		top: -20px;
+		z-index: 1; 
+
+	}
+
+	#bb{
+		z-index: 2;
+	}
+	
+	
+  </style>
+  
+  
+</head>
+
+<body>
+<h1><span style="font-size: 2em">Big</span> Header</h1>
+<div id="outerdiv"> 
+	<div id="innerdiv">
+	Here are a bunch of words that appear inside the inner div. And more words...
+	</div>
+	<p>Here is some content in the red outer div. It should be a certain distance from the inner div. Here is some content in the red outer div.  </p> <p class="clear"> It should be a certain distance from the inner div. Here is some content in the red outer div. It should be a certain distance from the inner div. Here is some content in the red outer div. It should be a certain distance from the inner div. Here is some content in the red outer div. It should be a certain distance from the inner div. </p>
+</div>
+<p>
+<img src="doge.png" alt="doge" width="200px" id="doge"/>
+<img src="BRANDON BABY.png" alt="lol" width="200px" id="bb"/>
+Lorem ipsum dolor sit amet, iaculis felis interdum praesent cum, eget 
+ipsum. Do accumsan et pulvinar, habitant aliquam, libero urna cras non
+ sit malesuada arcu, libero facilisis quis id senectus dui semper.
+ Look here, some anchor: <a href="#">Some anchor</a>.
+</p>
+<p> 
+ <span id="span1"> Maecenas <span id="span2" style="color: pink;">donec, in libero in tincidunt lorem ac, sed phasellus est 
+ praesent tortor.</span> Malesuada</span> habitasse a imperdiet vivamus sit, sit id 
+ inventore in. <div>Ac et et praesent,</div> <div>in fermentum</div> netus suspendisse elit 
+ blandit ac. Aenean ut duis quam, elementum nec iaculis nulla mollis 
+ sed, etiam justo mattis sed magna eget vulputate. Qui leo diam dignissim.
+ Faucibus placerat quisque, urna ultrices vel. In mi amet luctus 
+ nullam luctus, egestas elit id vivamus facilisis cum elit. Curabitur mauris, nam quam tempor et nec at dui, suspendisse condimentum sollicitudin dictumst malesuada tempus, porttitor quis tortor, felis eget per felis. Amet integer vestibulum mauris viverra non, ligula risus felis.
+</p>
+
+<p>
+Lorem ipsum dolor sit amet, iaculis felis interdum praesent cum, eget 
+ipsum. Do accumsan et pulvinar, habitant aliquam, libero urna cras non
+ sit malesuada arcu, libero facilisis quis id senectus dui semper.
+</p>
+<p> 
+ Maecenas donec, in libero in tincidunt lorem ac, sed phasellus est 
+ praesent tortor. Malesuada habitasse a imperdiet vivamus sit, sit id 
+ inventore in. Ac et et praesent, in fermentum netus suspendisse elit 
+ blandit ac. Aenean ut duis quam, elementum nec iaculis nulla mollis 
+ sed, etiam justo mattis sed magna eget vulputate. Qui leo diam dignissim.
+ Faucibus placerat quisque, urna ultrices vel. In mi amet luctus 
+ nullam luctus, egestas elit id vivamus facilisis cum elit. Curabitur mauris, nam quam tempor et nec at dui, suspendisse condimentum sollicitudin dictumst malesuada tempus, porttitor quis tortor, felis eget per felis. Amet integer vestibulum mauris viverra non, ligula risus felis.
+</p>
+
+<p>
+Lorem ipsum dolor sit amet, iaculis felis interdum praesent cum, eget 
+ipsum. Do accumsan et pulvinar, habitant aliquam, libero urna cras non
+ sit malesuada arcu, libero facilisis quis id senectus dui semper.
+</p>
+<p> 
+ Maecenas donec, in libero in tincidunt lorem ac, sed phasellus est 
+ praesent tortor. Malesuada habitasse a imperdiet vivamus sit, sit id 
+ inventore in. Ac et et praesent, in fermentum netus suspendisse elit 
+ blandit ac. Aenean ut duis quam, elementum nec iaculis nulla mollis 
+ sed, etiam justo mattis sed magna eget vulputate. Qui leo diam dignissim.
+ Faucibus placerat quisque, urna ultrices vel. In mi amet luctus 
+ nullam luctus, egestas elit id vivamus facilisis cum elit. Curabitur mauris, nam quam tempor et nec at dui, suspendisse condimentum sollicitudin dictumst malesuada tempus, porttitor quis tortor, felis eget per felis. Amet integer vestibulum mauris viverra non, ligula risus felis.
+</p>
+
+<div id="div1">
+  <div id="div2">Here are some words... and more words.</div>
+</div>
+
+
+</body>
+
+
+</html>

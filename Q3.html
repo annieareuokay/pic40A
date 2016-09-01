@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.1.min.js"></script>
+</head>
+
+<body>
+
+<form>
+<label for="user">Username: </label> <input type="text" id="user" name="username" /> <br/>
+<label for="pass">Password: </label> <input type="password" id="pass" name="password" /> <br/>
+<input type="button" id="validate" value="click"/>
+</form>
+<p id="result"></p>
+
+<script>
+  $('#validate').click(
+    function(){
+    
+	/** INSERT CODE HERE */
+     var pass = $("#password").val();
+     var username = $("#username").val();
+
+         var request = $.ajax(
+         {
+             url:server.php,
+             type:POST,
+             data:{password:pass, username:username}
+             success:function()
+             {                 
+               alert("Success");
+             }
+         });
+   });    
+  
+
+</script>
+
+</body>
+
+
+
+
+
+
+
+</html>

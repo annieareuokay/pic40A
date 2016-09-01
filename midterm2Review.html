@@ -1,0 +1,64 @@
+<!doctype html> 
+<html>
+<!-- press a button to begin animation 
+ONLAOD DO: 
+1. Use ajax to get the review words from the text file
+2. use the words to create an object whose properites are the words when the user clicks on the the button
+ -->
+
+<header>
+	<title>REVIEW</title>
+
+	<script = "text/javascript">
+	</script>
+	<script>
+
+	// window.onload = function(){
+	// 	document.getElementById("thing")
+	// }
+
+	function createObject(){
+		var wordsData = topicsList.split(","); //splits into an array
+		for (var i = 0; i<wordsData.length; i++){
+			topics["topic" + i) = wordsData[i];
+		//topics.["topic"+i] = wordsData[i]; might not work. 
+		}
+	} 
+
+	function start(){
+		interval1 = setInterval(addWord, 500);
+		interval2 = setInterval (move, 50); 
+	}
+
+	function addWord(){ //creates the word at the very top of location at random location w/ random color
+		var topic_index = Math.floor(Math.random()=num_topics); 
+		var x_pos = Math.floor(Math.random()=window.innerWidth) + "px"; 
+		var color = "#" + Math.floor(Math.random()*Math.pow(16,6)).to String(16); 
+
+	}
+
+
+	// var createObject = function(){
+
+	// } //another way to create object
+
+	$(document).ready(functio(){
+		$.ajax()({
+			url:"words.txt", 
+			dataType: "text",
+			success:function(data){
+				topicsList = data; 
+			}
+		});
+	})
+
+
+	</script>
+
+
+<header>
+<body>
+
+
+	<button id="thing" onclick="start();">Click to start the animation!</button>
+</body>

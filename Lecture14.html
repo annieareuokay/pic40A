@@ -1,0 +1,327 @@
+
+<!--
+
+25. Control Flow	
+  25.2 Loops
+    25.2.1 General Remarks
+      25.2.1.1 Size of Containers
+	    The .length PROPERTY (not function) tells us the size
+	    of a string or container
+	  
+	    var x = "abc";
+	    x.length; // this is 3
+	  
+	    "987654321".length; // this is 9
+	  
+	    x = [1,0];
+	    x.length; // now this is 2
+		
+	  25.2.1.2 Common Operators
+	    % for modulus
+		
+		++, --, same as C++ including
+		  prefix returning post-modified value
+		  postfix returning pre-modified value
+		  
+		var i = 7;
+		++i; // this evaulates to 8 and i is 8 
+		i++;// this evaulates 8 and is 9; 
+
+		+=, -=, *=, /=
+  
+    25.2.2 For
+	
+	  var msg = "Chocolate is yummy.";
+	  fin = ""; // our message to display
+	  
+	  for(var i=0; i < msg.length; ++i)
+	    fin += msg[i] + "<br/>";
+		
+	  Q: Write a string backwards?
+
+	  fin = ""; 
+	  for (var i = msg.length-1; i >= 0; --i)
+	  	fin  += msg[i]; 
+	
+	25.2.3 For In
+	
+	  - perhaps less useful than a range-for in C++
+	  
+	  for (var i in msg)
+	    fin += msg[i]; // still gotta subscript... i is in range
+		
+	  In C++, this would be the same as:
+	    for (char c : msg)
+		  fin += c;
+	
+	  Sort of...
+
+      It automatically detects the range, but we can 
+	  detect the range anyway just with the .length...	  
+	
+	25.2.4 Do
+	
+	  var j = 10;
+	  do{
+	    alert(j + " bottles of beer on the wall, " + j + 
+		"bottles of beer. You take one down, pass it around, " +
+		--j + " bottles of beer on the wall.");
+	  } while(j > 0);
+	
+	25.2.5 While 
+	
+	  while(condition){
+	    statements;
+	  }
+	
+	  
+26. Arrays 
+  26.1 Creating an Array	
+    - Can directly create an empty array
+	  var arr = [];
+	 
+	- Then subscript to create/modify entires
+	  arr[1] = "car";
+	  arr[3] = 5;
+	  arr[4] = false;
+	  arr.push('300');
+	  
+	- Above, length of arr is 6
+	- Entries 0 and 2 are "undefined"
+	- push function adds elements to end of array
+	
+	- Can also directly initialize an array
+	  var barr = [1, arr, "PIC 40A"]; // barr has length 3 and
+	  // stores an array as an element
+	  
+	- Can create an array object with new keyword and invoke
+	constructor:
+	
+	  var carr = new Array(5); // array with 5 undefined elements
+	  
+  
+  26.2 Array Operations/Functions
+    - Access elements via subscript
+	
+	barr[0]; // 1
+	barr[1]; // ,car,,5,false,300
+	
+	- pop:
+	  arr.pop(); // removes last element
+	  
+	- push:
+	  arr.push('a'); // adds element at end
+	  
+	- find: finds the first element in the array that meets 
+	search criteria or outputs undefined if not found
+	
+	  arr.find(function_that_returns_bool(array_element,
+	  index_of_element, the_array_itself));
+	  
+	  arr.find( function(el){ return el === 'a';} );
+	
+	- reverse: reverse elements in array
+	  arr.reverse();
+	
+	- sort: sort elements alphabetically (including numbers!)
+	  arr.sort();
+	  
+	  arr.sort( function_that_compares_left_with_right(left_val,
+	  right_val) );
+	
+
+27. Functions, Objects, and Constructors
+  27.1 Functions
+    27.1.1 Named Functions
+	  - define functions using the function keyword:
+	  
+	  function myFunction(args){
+	    body;
+		[return ***;]
+	  }
+	  
+	  where the function name is myFunction,
+	  args is a comma separated list of zero or more names of
+	  variables,
+	  and within the body there is an optional return statement
+	  and *** may be empty or be a value.
+	  
+	  - functions CANNOT be overloaded
+	  - even if args is empty, can pass parameters to a function
+	  and they will be capture in arguments[0], arguments[1], ...
+	  - if more args listed than parameters passed to function
+	  assignment begins with leftmost and some args may be
+	  undefined
+	  
+	  Ex:
+	
+      function alertIt(num){
+	  alert(num);
+      return num+num;	  
+	}
+	
+	
+	  function takeInput(){
+	  alert('Will double your answer each iteration for three iterations');
+	  var userin = document.getElementById('userInput').value;
+	  for (var i=0; i < 3; ++i){
+	    userin = alertIt(userin*1);
+	  }
+	  
+	}
+	
+	/* Or:
+	  function alertIt(){
+	  alert(arguments[0]);
+      return arguments[0]+arguments[0];	  
+	}
+	
+	*/	  
+	
+	27.1.2 Unnamed Functions
+	  - Consider an array object with an "unnamed" function:
+	  
+	  var arr = [];
+	  arr.push(42);
+	  arr.push( function(a,b,c){ alert("I'm anonymous.
+	  a is" + a + " and b is " + b + " and c is " + c);} );
+	  
+	  arr[1](-1,'sun');
+	  
+	  - A function without a name can be stored inside an array,
+	  an object, or be passed as a parameter to another function
+	  such as with the find function.
+	  
+	  
+  27.2 Objects
+    27.2.1 Object Overview
+	  - Objects serve as containers
+	  - Can store variables (by name), functions (by name),
+	  other objects (by name)
+  
+    27.2.2 Creating Objects
+	
+	27.2.3 Accessing Object Data/Functions
+	
+  27.3 Constructors
+    27.3.1 Writing Constructors
+	
+	27.3.2 Invoking Constructors
+	
+	27.3.3 Date Object Example
+
+28. Document Object Module
+
+29. Animations
+	  
+	  
+
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>A Title</title>
+  
+   
+  <script type="text/javascript">
+    window.onload = function(){
+
+    	var arr = []; 
+	
+   //    arr[1] = "car";
+	  // arr[3] = 5;
+	  // arr[4] = false;
+	  // arr.push('300');
+
+     // 	var j = 10;
+	 //  do{
+	 //    alert(j + " bottles of beer on the wall, " + j + 
+		// "bottles of beer. You take one down, pass it around, " +
+		// --j + " bottles of beer on the wall.");
+	 //  } while(j > 0);
+
+	 // // var i = 8;
+	 // // fin = ++i; 
+	 
+	 // var msg = "Chocolate is yummy.";
+	 //  // fin = ""; // our message to display
+	  
+	 //  // for(var i=0; i < msg.length; ++i)
+	 //  //   fin += msg[i] + "<br/>";
+
+	 //  fin = ""; 
+	 //  for (var i = msg.length-1; i >= 0; --i)
+	 //  	fin  += msg[i]; 
+	
+ 
+    document.getElementById('output').innerHTML = fin;
+	
+    init = 	document.getElementById('toSwap').innerHTML; 
+		
+	};
+	
+	function swap(){
+	  if(document.getElementById('toSwap').innerHTML !== init)
+	    document.getElementById('toSwap').innerHTML = init;
+	  else
+	    document.getElementById('toSwap').innerHTML = 'boo!';
+	
+	
+	}
+	
+	function takeInput(){
+	  alert('Will double your answer each iteration for three iterations');
+	  var userin = document.getElementById('userInput').value;
+	  for (var i=0; i < 3; ++i){
+	    userin = alertIt(userin*1);
+	  }
+
+	  function alertIt(){
+	  alert(arguments[0]);
+      return arguments[0]+arguments[0];	
+	}
+	
+  </script>
+  
+  
+</head>
+
+<body onload>
+
+<div id="outer">
+  <div id="inner"><p id="innerinnerp">Test!</p></div>
+</div>
+
+<input type="text" id="userInput" />
+<input type="button" onclick = "takeInput();" value = "click" />
+
+<pre>
+  <p id="output">
+  </p>
+</pre>
+  
+<p id="toSwap">
+Lorem ipsum dolor sit amet, iaculis felis interdum praesent cum, eget 
+ipsum. Do accumsan et pulvinar, habitant aliquam, libero urna cras non
+ sit malesuada arcu, libero facilisis quis id senectus dui semper.
+</p>
+<p> 
+ Maecenas donec, in libero in tincidunt lorem ac, sed phasellus est 
+ praesent tortor. Malesuada habitasse a imperdiet vivamus sit, sit id 
+ inventore in. Ac et et praesent, in fermentum netus suspendisse elit 
+ blandit ac. Aenean ut duis quam, elementum nec iaculis nulla mollis 
+ sed, etiam justo mattis sed magna eget vulputate. Qui leo diam dignissim.
+ Faucibus placerat quisque, urna ultrices vel. In mi amet luctus 
+ nullam luctus, egestas elit id vivamus facilisis cum elit. Curabitur mauris, nam quam tempor et nec at dui, suspendisse condimentum sollicitudin dictumst malesuada tempus, porttitor quis tortor, felis eget per felis. Amet integer vestibulum mauris viverra non, ligula risus felis.
+</p>
+
+
+
+</body>
+
+
+</html>

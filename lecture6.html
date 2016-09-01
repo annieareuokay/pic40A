@@ -1,0 +1,96 @@
+
+<!--
+  
+11. Forms
+  11.4 textarea:
+    - this is for a lot of text - not just a small amount like with the input type
+    of text.
+
+    - can specify attributes of rows and cols, number of rows and columns
+
+    - can give default text by placing text between opening and closing tag.
+
+    - rows and cols attributes give the size of the text area
+	
+  11.5 radio and checkbox
+  - input type = "radio" or input type = "Checkbox" 
+  -gnerally we keep a grouping of radio butons or checkboxes to have the same nmae...
+  -we assign them an id (if we want to reference them)
+  -we give a value to the selection...
+  -to have a a button selected by default, just add the "checked" attribute
+
+  11.6 Select
+  - this element holds options 
+  - stores <option> elements, representing options for a drop-down list box. 
+  
+  11.6 tel, et al.
+  - tel: for phone numbers. Has a patter attribute that specifies a "regular expression" for the format required. 
+  - password: for passwords - keeps the characters hidden. 
+  
+  11.7 actions
+
+12. CSS
+  12.1 Brief overview
+  12.2 Inline
+  12.3 Within document
+  12.4 External
+
+13. CSS for text
+
+14. CSS for positioning
+
+  
+  -->
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lecture6</title>
+</head>
+
+<body>
+
+<form id = "formid" action="">
+<fieldset>
+	<textarea name="LargeTextArea" value="userText" rows="5" cols="30"> Default </textarea>
+</fieldset>
+<fieldset id="fieldColors">
+	<label for="green"> Green </label>
+	<input type="radio" id="green" value="green" name="color"/>
+	<label for="red"> Red </label>
+	<input type="radio" id="red" value="red" name="color"/> <!--this tells us that both inputs are together-->
+</fieldset>
+
+<fieldset id="movies">
+	<label for="Star Wars"> Star Wars </label>
+	<input type="checkbox" id="SW" value="Star Wars" name="movie" checked/>
+	<label for="Harry Potter"> Harry Potter</label>
+	<input type="checkbox" id="HP" value="HarryPotter" name="movie"checked/>
+</fieldset>
+
+<fieldset id="fonts">
+	<select name="Font Types">
+		<option value="Times New Roman"> Times New Roman</option>
+		<option value="Comic Sans">Comic Sans</option>
+		<option value="Arial">Arial</option>
+	</select>
+</fieldset>
+
+<input type="tel" name="telnum" pattern="[0-9](9)"/>
+<input type="password" name="pass" id="pass"/> 
+
+<input type="submit" value="Click me to submit" onclick="alert(document.getElementById('pass').value" />
+
+<p>
+	Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah Blah blah blah blah 
+</p>
+</form>
+</body>
+
+</html>
+
+
+
+
+
+

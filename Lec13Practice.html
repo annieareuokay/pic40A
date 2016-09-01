@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>A Title</title>
+  
+   <!-- what happens when the page is loaded -->
+  <script type="text/javascript">
+    var i = 0;
+    function buttonClick() {
+        i++;
+        document.getElementById('output').innerHTML = i; 
+    }
+</script>
+
+<button onclick="buttonClick();">Test!</button>
+
+<pre>
+  <p id="output">0</p>
+</pre>
+
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+if($_POST){
+	$name = $_POST['user']; 
+	$content = $_POST['commentSection'];
+	$rating=$_POST[]
+	$handle = fopen("hw5index.html", "a"); 
+	fwrite($handle, "<br/>" .$name . "<br/>Review comments:" . $content . "<br/><br/>");
+	fclose($handle);
+
+}
+
+
+//$cmd = "INSERT INTO " . $table . " ( " . $field1 . ", " . $field2 . ", " . $field3 . ", " . $field4 . ", " . $field5 . "  ) VALUES ( \'' " . $name . "\', " . $book . ", \'" . $rating . ",\'" . $checkbox . ", \'" . $content . "\' )";

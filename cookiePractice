@@ -1,0 +1,9 @@
+<!doctype html>
+
+<script type="text/javascript" src="http://ajax">
+
+var name; 
+
+$(function (){
+	var cookie = document.cookie
+})

@@ -1,0 +1,33 @@
+5MQ0QX870FE
+yWsqTrDJ_gU
+JyTawuNvQi0
+HwRQ9dbti-4
+_ziv_WeBLvo
+
+
+<!-- <?
+$videos=array('Z-DdQUszwoc', 'Rx7OIHCR3Cw'); 
+$index = $videos[mt_rand(0, count($videos) - 1)];
+$html = '<div class="span4"><h3 class="meet">Random Video</h3><iframe width="50%" height="50%" src="http://www.youtube.com/embed/"' . $videos[$index] . '"frameborder="0" allowfullscreen></iframe></div>';
+$echo $html; 
+?> -->
+
+value="http://www.youtube.com/v/<?php echo $content;?>"
+
+
+
+<!-- <script type="text/javascript">
+
+   var videos = ['Z-DdQUszwoc', 'Rx7OIHCR3Cw'];
+
+   // function playRanVid()){
+
+	
+    
+	var index=Math.floor(Math.random() * videos.length);
+	var html='<div class="span4"><h3 class="meet">Random Video</h3><iframe width="50%" height="50%" src="http://www.youtube.com/embed/' + videos[index] + '" frameborder="0" allowfullscreen></iframe></div>';
+	// document.write(html);
+	document.getElementById("myContent").innerHTML = html; 
+	
+	// };
+  </script> -->

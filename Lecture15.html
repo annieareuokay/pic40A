@@ -1,0 +1,386 @@
+
+<!--
+
+27. Functions, Objects, and Constructors
+  27.1 Functions
+    	
+	27.1.2 Unnamed Functions
+	  - Consider an array object with an "unnamed" function:
+	  
+	  var arr = [];
+	  arr.push(42);
+	  arr.push( function(a,b,c){ alert("I'm anonymous.
+	  a is" + a + " and b is " + b + " and c is " + c);} );
+	  
+	  arr[1](-1,'sun');
+	  
+	  - A function without a name can be stored inside an array,
+	  an object, or be passed as a parameter to another function
+	  such as with the find function.
+	  
+	27.1.3 Special Functions
+	  27.1.3.1 Onload
+	    - once an element is loaded, its onload event can be
+		triggered
+		- by specifying X.onload = ... we are giving a specific
+		function to run once X has loaded
+		
+		- document.onload fires once the html is parsed BUT
+		may be before the page is rendered or the graphics or
+		other content are included...
+		
+		- window.onload fires once everything has been loaded
+		- window.onload is the safest and most widely supported
+		way to trigger an event	when a page has loaded
+		- ... unless we use JQuery in which case there are 
+		better ways...
+	  
+	  27.1.3.2 getElementById
+	  
+	    - document.getElementById('idName') returns a reference
+		to the html element with the given id
+		- for example:
+		  document.getElementById('output').innerHTML = "CATS";
+		changes the html inside of the element with id of output
+		to CATS.
+	  
+	  27.1.3.3 getElementsByName
+	    - document.getElementsByName('theName') returns an array
+		storing references to all elements, in sequential order,
+		with the given name
+		- for example:
+		
+		fin = document.getElementsByName('ps'); // get array	
+ 	    fin[2].innerHTML = "snake";	// change third 
+		// paragraph to 'snake'
+	    fin = fin[1].innerHTML; // change fin to only be 
+		// HTML of 2nd paragraph
+	 
+	  
+  27.2 Objects
+    27.2.1 Object Overview
+	  - Objects serve as containers
+	  - Can store variables (by name), functions (by name),
+	  other objects (by name)
+	  - May create a namespace to hold different functions
+  
+    27.2.2 Creating Objects
+	  27.2.2.1 Attributes
+	    - an attribute is a name:value pair
+		- the name (property) is how we refer to the 
+		value: id, name, action_to_take, etc.
+		- the value is, well, a "value": a number, a string, 
+		a function, or even another object
+	
+	  27.2.2.2 Curly Braces
+	    - objects are defined with curly braces
+		var x = {}; // an empty object
+		
+		// object called y with properties num and msg
+		var y = {num: 7, msg: 'hi'};
+	  
+	  27.2.2.3 Add Properties with .
+	    - can add more properties with the .:
+		
+		x.a = false; // x has an a-property with value false
+		x.b = y; // x now has a b-property with value y-object
+		
+	  27.2.2.4 Add Properties with []
+	    y['extra'] = 'cookie'; // now y has extra property
+		// with value 'cookie'
+
+		same effect with:
+			y.extra = 'cookie';
+		
+		Rmk: associative arrays such as maps do exist. Arrays
+		by default are not associative!
+	
+	27.2.3 Accessing Object Data/Functions
+	  27.2.3.1 Access Operator .
+	    - access the elements with the . operator
+		
+	    y.extra = 'coffee';
+		x.a = {}; // now the a-property is an empty object
+		x.a.ppty = 'property';
+	  
+	  27.2.3.2 Subscript Operator []
+	    - access elements with [] operator
+		
+		y['extra']; // 'coffee'
+		
+		Q: how to access x.a.ppty with []?
+
+		x['a']['ppty'];
+		x.a['ppty'];
+		
+  27.3 Some Built-In Objects
+  
+    27.3.1 Date Object Example
+	  
+	  var now = new Date();	  
+	  theTime = now.getHours() + ":" + now.getMinutes();
+	  
+	  Date object has many built-in functions such as
+	  getHour, getMinutes, etc.
+	
+    27.3.2 Math Object
+    - The math object defines many useful functions and
+	operations
+	
+	- These functions are stored inside the Math object, much like the standard namespace in C++ with cmath stores math functions. 
+
+	  var x = 49;
+	  var sqrtx = Math.sqrt(x); // is 7
+	
+  27.3 Constructors
+    27.3.1 Writing Constructors
+	  - written as a function specifying properties with this:
+	  
+	  function XObject(num){
+	    this.num = num;
+		this.num2 = Math.pow(num,2);
+		this.fun = function(){ alert('fun!');};
+	  }
+	  
+	  	
+	27.3.2 Invoking Constructors
+	  - use the new keyword to construct an object
+	  
+	  var X = new XObject(5);
+	
+	27.4 Scope for Functions
+	- If a function is defined inside a set of braces, it is only known inside the set of braces
+	- If if it defined outside of a set of braces 
+		(window.online, for example) then it can be accessed elsewhere
+	
+28. JavaScript Inclusion
+  28.1 Within Document
+    - can place JavaScript in a <script>...</script> element
+  
+  28.2 In Head
+    - better practice: place it in the head at the top
+  
+  28.3 External JavaScript
+    - or store it externally in a file like file.js
+	and link to it:
+	
+	<script src="file.js"> </script>
+  
+
+29. Document Object Module
+  29.1 Overview
+    - HTML document stored as a tree
+	- the elements immediately embedded within an element are
+	its children
+	- the element enclosing any given element is the parent
+	<p>
+	  <a>...</a>
+	  <ul>
+	    <li>...</li>
+		<li>...</li>
+	  </ul>
+	</p>
+	
+	- a is a child of p
+	- li is a child of ul, ul is the parent of both li's
+	- the two li's are siblings
+	- the li's are descendants of p
+  
+  29.2 Accessing and manipulating elements
+  
+    - Many ways to access the elements. Some of the most common:
+	
+	  29.2.1 Functions:
+	
+	  getElementById('id'): element with given id
+	
+	  getElementsByName('name'): array of elements with given name
+	
+	  getElementsByTagName('tag'): array of all elements with
+	  given element type of tag
+	  
+	  createElement('tag'): creates an element object of type tag
+	    ex:
+		  var newp = document.createElement('p');
+		  var newa = document.createElement('a');
+		  
+	  createTextNode('some text'): creates a text node object with
+	  the given text
+	  
+	    ex:
+		  var newtxt = document.createTextNode('someLink');
+		  
+	  appendChild: appends a child to a given element
+	    ex:
+		
+		newa.appendChild(newtxt);
+		newp.appendChild(newa);
+		
+	  setAttribute: assign the HTML attribute to an element
+	    ex:
+		
+		newa.setAttribute('href', '#');
+	
+	  getAttribute: return the attribute of an element
+	  
+	  All together:
+	  
+	    var someSection = document.getElementById('topBit');
+	  
+		var newp = document.createElement('p');
+		var newa = document.createElement('a');
+		
+		var newtxt = document.createTextNode('someLink');
+		  
+		newa.appendChild(newtxt);
+		newp.appendChild(newa);
+		
+		newa.setAttribute('href', '#');
+		
+		someSection.appendChild(newp);
+		
+	  
+	  29.2.2 Properties: note that "node" also includes text
+	  and whitespace
+	  
+	  nodeName: returns the name of a node
+	  
+	  parentNode: returns the parent node
+	  
+	  childNodes: returns array of child nodes
+	  
+	  firstChild: returns the first child
+	  
+	  lastChild: returns the last child
+
+      value: the value property
+
+      innerHTML: the HTML inside an element	  
+	  
+	  style: the CSS styling
+	    document.getElementById('someId').style.backgroundColor = "red";
+		
+		use camel casing for items that would otherwise have hyphens -
+ 
+
+30. Animations
+  30.1 setTimeout
+
+  30.2 setInterval  
+	  
+
+
+-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>A Title</title>
+  
+   
+  <script type="text/javascript">
+    window.onload = function(){
+
+    	function XObject(num){
+	    this.num = num;
+		this.num2 = Math.pow(num,2);
+		this.fun = function(){ alert('fun!');};
+	  }
+
+	  var X = new XObject(5); 
+	  fin = X.num2; 
+	  X.fun(); 
+	
+   //  	var arr = ["abc", "bad", "fje", "cat"];
+   //  	var now = new Date();	  
+	  // theTime = now.getHours() + ":" + now.getMinutes();
+
+	  // fin = theTime; 
+
+	  // fin = arr.find(function (word) ( return word[0] === c))
+
+    // fin = "";
+ 
+    document.getElementById('output').innerHTML = fin;
+	
+    init = 	document.getElementById('toSwap').innerHTML; 
+	
+
+	
+	};
+	
+		
+
+	
+	  function clicked(){
+
+	  	fin = document.getElementsByName('ps'); // get array	
+ 	    fin[2].innerHTML = "snake";	// change third 
+		// paragraph to 'snake'
+	    fin = fin[1].innerHTML; // change fin to only be 
+		// HTML of 2nd paragraph
+
+		document.getElementById('output').innerHTML = fin;
+	    
+	  
+	  }
+	  
+
+	
+	
+	
+	
+	
+	
+	
+  </script>
+  
+  
+</head>
+
+<body>
+
+<section id="topBit">
+
+</section>
+
+
+<p name="ps">A</p>
+<p name="ps">B</p>
+<p name="ps">C</p>
+
+<div id="outer">
+  <div id="inner"><p id="innerinnerp">Test!</p></div>
+</div>
+
+<input type="text" id="userInput" />
+<input type="button" onclick = "clicked();" value = "click" />
+
+<pre>
+  <p id="output">
+  </p>
+</pre>
+  
+<p id="toSwap">
+Lorem ipsum dolor sit amet, iaculis felis interdum praesent cum, eget 
+ipsum. Do accumsan et pulvinar, habitant aliquam, libero urna cras non
+ sit malesuada arcu, libero facilisis quis id senectus dui semper.
+</p>
+<p> 
+ Maecenas donec, in libero in tincidunt lorem ac, sed phasellus est 
+ praesent tortor. Malesuada habitasse a imperdiet vivamus sit, sit id 
+ inventore in. Ac et et praesent, in fermentum netus suspendisse elit 
+ blandit ac. Aenean ut duis quam, elementum nec iaculis nulla mollis 
+ sed, etiam justo mattis sed magna eget vulputate. Qui leo diam dignissim.
+ Faucibus placerat quisque, urna ultrices vel. In mi amet luctus 
+ nullam luctus, egestas elit id vivamus facilisis cum elit. Curabitur mauris, nam quam tempor et nec at dui, suspendisse condimentum sollicitudin dictumst malesuada tempus, porttitor quis tortor, felis eget per felis. Amet integer vestibulum mauris viverra non, ligula risus felis.
+</p>
+
+
+
+</body>
+
+
+</html>

@@ -1,0 +1,109 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="utf-8"/>
+	<title> JQuery & Ajax </title>
+
+	<style>
+		html, body {
+			margin: 0px;
+			height: 100%;
+		}
+	</style>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.1.min.js"></script>
+	<script>
+
+	/*
+		Review of javascript:
+
+		alert, innerHTML, var VS no var, objects, typeof, if-statements,
+		for loops, for-in loops, do-while, while, arrays (initialization, access/modify, constructor usage
+		, pop, push, find, reverse, sort), functions (parameters by args, anonymous functions, 
+		onload, onclick, functions as variables), getElements***, objects (creating inline, constructors, adding properties, accessing properties, member functions), Date, Math, include javascript, creating
+		html elements, removing html elements, etc., changing attributes and style, setTimeout, setInterval, cookies, jQuery (event listeners, modifying html, ajax), 
+	*/
+
+		/*
+		ONLOAD DO:
+		1. Use ajax to get the review words from the text file
+		2. Use the words to create an OBJECT whose PROPERTIES are the words
+		   WHEN USER CLICKS BUTTON DO:
+		3. Call setInterval on 2 different functions, one which creates the words and the other
+		   which moves each of the words down a certain amount
+		4. In the function that creates the words, you need to randomly choose a word
+		   from the object, and you need to set a bunch of style properties and an onclick event
+		5. In the function that moves the words down, you need to change the top property
+
+	*/
+
+
+	// Create a program that creates an object where each property is one of the topics below
+	// Give the object a member function
+
+	function createObject() {
+		var topic_array = word_list.split(",");
+		num_properties = topic_array.length;
+		topics = {};
+		for (var i = 0 ; i < topic_array.length ; i++){
+			topics["topic"+i] = topic_array[i].trim();
+		}
+	}
+
+	// Create an animation where the topics above fly across the screen from top to bottom
+
+	start = function() {
+		interval1 = setInterval(animate,500);
+		interval2 = setInterval(moveDown,50);
+	}
+
+	function remove(){
+		document.getElementsByTagName("body")[0].removeChild(this);
+	}
+
+	function animate() {
+		var topic_index = Math.floor(Math.random()*num_properties);
+		var x_pos = Math.floor(Math.random()*window.innerWidth);
+		var color = "#" + Math.floor(Math.random()*Math.pow(16,6)).toString(16);
+		var span = document.createElement("span");
+		span.innerHTML = topics["topic"+topic_index];
+		span.style.position = "absolute";
+		span.style.left = x_pos + "px";
+		span.style.top = "0px";
+		span.style.color = color;
+		span.style.fontSize = "30px";
+		span.addEventListener("click",remove);
+		document.getElementsByTagName("body")[0].appendChild(span);
+	}
+
+	function moveDown() {
+		var spans = document.getElementsByTagName("span");
+		console.log(spans.length);
+		for (var i = 0 ; i < spans.length ; i++) {
+			spans[i].style.top = parseInt(spans[i].style.top) + 3 + "px";
+		}
+	}
+
+	$(document).ready(function() {
+		$.ajax({
+			url: "words.txt",
+			dataType: "text",
+		})
+		.done(function(data) {
+			word_list = data;
+			createObject();
+		})
+		.fail(function() {
+			$("body").html("Request failed!");
+		});
+	});
+
+	</script>
+</head>
+
+<body>
+	<button onclick="start();">Click here to start the animation!</button>
+</body>
+
+</html>

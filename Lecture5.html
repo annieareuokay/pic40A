@@ -1,0 +1,156 @@
+
+<!--
+
+7. Lists
+  7.3 Definition Lists:
+    dl tag - semantically used to give a term and its definition
+	embedded within the dl element:
+	- dt: definition term - the term we want to define
+	- dd: description - the description of the term
+  
+8. Tables:
+  8.1 Table tag
+    define area that will be a table with <table>...</table>
+	thead: tag for the header part of a table - names of columns?
+	tbody: bulk of the table and data
+	tfoot: row for the sums of the entries or their average
+	
+  8.2 Headers
+    th tag: signifies something is a header/label entry
+	
+	Sometimes, even the rows have special titles and those titles can
+	be placed inside of a th element -- not just for the names of columns
+		
+	
+  8.3 Rows and data
+    - each row is enclosed by a row element: tr
+	- each data element is inside of a table data element: td
+	- if nothing is inside a td or th tag, then the title/data is ""
+  
+9. Images: 
+  9.1 Overview
+  
+  img tag, self-closing
+  
+  9.2 src and alt:
+    src - source - tells where the image is located and its name
+	alt - alternative text - gives a description of the image if not
+	found or loaded, and used for the visually impaired
+  
+  9.3 height and width:
+    usually these attributes are measured in pixels, px
+	height: the height of the image
+	width: the width of the image
+	
+	If only one is specified then the aspect ratio is maintained.
+	Otherwise, we may distort the image.
+  
+10. Audio and Video
+  10.1 audio:
+    With the audio element, we can include audio files to play.
+	
+	There is an attribute that doesn't need to be assigned a value called
+	controls - just make sure to include it.
+	
+	10.1.1
+	  source element: <source src="fileName.whatever" />
+	  
+	  Can include multiple source elements, in case the browser cannot
+	  play the preceding file types.
+	  
+	  Can include an error message if none of the file types can be played.		
+  
+  10.2 video:
+    Same as for audio with the source elements and the controls attribute
+  
+11. Forms
+  11.1 Overview
+    A form is an element used to accept user input/requests. Within a form
+    there are different ways of accepting user input.
+    
+  11.2 Submit and Reset
+    submit: <type input="submit" value="What Displays on the Button" />
+	  - will take the user's input in the form and do something
+	  
+	reset: <type input="reset" value="What Displays on the Button" />
+	  - clears everything from the form
+  
+  11.3 text:
+    - this will accept a user's input in a small text field
+	- for this type of button, we want to give the field area a name
+	attribute (used for when the data are processed), id (to identify
+	the text field).
+	
+	- label tag:
+	  attribute for: value of for should be the id of the form element
+	  
+	  Used to specify a label.
+
+  11.4 textarea:
+    - this is for a lot of text - not just a small amount like with the input type
+    of text.
+
+    - can specify attributes of rows and cols, number of rows and columns
+
+    - can give default text by placing text between opening and closing tag.
+	
+  
+  -->
+  
+<!DOCTYPE hmtl>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>UCLA</title>
+</head>
+
+<body>
+<header>
+  <a href="#lastAnchor"><h1>UCLA</h1></a> <!-- notice how we have put an h1 heading into the header: it is nested -->
+  <h2>Why Bruins Are Awesome!</h2>    
+</header>
+
+<main>
+
+<dl>
+  <dt>cat</dt> <dd>cute adorable thing</dd>
+  <dt>bird</dt> <dd>something that flies</dd>
+</dl>
+
+<table>
+  <thead>
+    <tr><th></th> <th>Value of N</th> <th>Value of N<sup>2</sup></th></tr>	
+  </thead>
+  <tbody>
+    <tr><th>A: </th> <td>1</td> <td>1</td> </tr>
+	<tr><th>B: </th> <td>5</td> <td>25</td> </tr>
+  </tbody>
+</table>
+
+<img src="../Lecture4/creepysmiley.png" alt="A creepy smiley face" height = "500" />
+
+<audio controls>
+  <source src="bird.mp3" />
+  <source src="bird.wav" />
+  You suck. Your browswer cannot play any of these.
+</audio>
+
+<form>
+  <p>
+    <label for="littleTextArea">Enter something here: </label>
+    <input type="text" name="sometext" id="littleTextArea" />
+  </p>
+  <p>
+    <input type="reset" value="Clear All." />
+    <input type="submit" value="Click me for greeting." />
+  </p>
+</form>
+
+</main>
+
+</body>
+
+
+
+
+</html>

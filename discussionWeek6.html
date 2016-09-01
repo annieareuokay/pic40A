@@ -1,0 +1,85 @@
+<!-- setTImeout & setInterval
+
+1. setTimeout(function, 1000)
+	- wait 1000ms and then call function()
+	- pauses your code for 1000 ms
+
+2. setInterval (function, 1000)
+	- wait 1000ms and then call function()
+	- doesn't pause your code; runs in the background
+
+(0,0) = upper right hand corner. 
+translate: moves (0,0) to the middle
+rotate: rotate canvas
+	- enables you to draw the Second Hand in the same spot.
+
+Cookies: 
+	-If you're using cookies in JavaScript, use Firefox. (Chrome SOMETIMES works)
+	
+	 To create a cookie: 
+		document.cookie = "key=value"; 
+
+		The cookie disappears when the window is closed. 
+
+	If you want to set an expiration date: 
+		document.cookie = "key=value; expires=[utc string]"; 
+
+	To change cookie: 
+		document.cookie = "key = thing"; 
+
+	Get cookie: 
+		var cookie.str = document.cookie; 
+
+	split: creates an array of strings from a single string by splitting the string at some delimiter. 
+
+ -->
+
+ <!doctype html>
+ <head>
+ 	<meta charset="utf-8"/>
+ 	<title>setTimeout vs setInterval Example</title>
+
+ <script> 
+
+ function go() {
+ 	canvas = document.getElementById('game"); 
+ 	ctx = cavas.getContext("2d");
+ 	ctx. translate(canvas.width/2, canvas.height/2);
+ 	draw_clock(); 
+ 	// setInterval(draw_clock,1000);
+ 	while(true){
+ 		setTimeout(draw_clock,1000); 
+ 	}
+
+ }
+
+ function draw_clock(){
+ 	ctx.rotate(2*Math.PI/60);
+ 	ctx.clearRect(-400,-400, canvas.width, canvas.height); 
+ 	//clockoutline
+ 	ctx.moveTo(0,0)
+ 	ctx.lineTo(0,-300);
+ 	ctx.stroke();
+ 	ctx.beginPath();
+ 	ctx.arc(0,0,350,0,2*Math.PI); 
+ 	ctx.stroke();
+
+
+ }
+
+
+ function find_cookie(key){
+ 	var cookie_array = document.cookie.split(";"); 
+ 	for (x in cookie_array){
+ 			var pair = cookie_array[x].split("="); 
+ 			if (pair[0] == key){
+ 				return pair[1]; 
+ 			}
+
+ 	}
+ 	return "not found"; 
+ }
+
+ </script>
+ </head>
+ <body> 

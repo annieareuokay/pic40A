@@ -1,0 +1,60 @@
+<!-- Exercise
+Set up a document with 5 empty paragraph tags. 
+When the user clicks a button the first time, the tags should all be filled with the message "hello".
+When the user clicks a button the next time, the third paragraph should say "go away" 
+
+make sure you change the color. 
+On that click above, the third paragraph should also turn blue. -->
+
+<!doctype html> 
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Javascript stuffs</title>
+  
+  <style type="text/css">
+    .example{
+	  color: red;
+	}
+  </style>
+  
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.1.min.js"></script>
+   
+  <script type="text/javascript">
+  	var counter = 0; 
+
+  	function clicked(){
+
+  	}
+
+  	$( function() {
+  	 $('#button').click( clicked() {
+  		if(counter=0){
+  			$('p').html("Hello");
+  			counter++; 
+  		}
+  		else if (counter==1))
+		$('#p3').html("Go away!!"); 
+		$('#p3').css('color', 'blue');
+		counter++;
+		}
+		else return; 
+
+}
+
+
+  </script>
+  </head>
+  <body>
+
+  <input type="button" id="button" onclick = "clicked();" value = "click" />
+  	  <p id = "p1"></p>
+  	  <p id = "p2"></p>
+  	  <p id = "p3"></p>
+  	  <p id = "p4"></p>
+  	  <p id = "p5"></p>
+
+
+
+  </body>

@@ -1,0 +1,55 @@
+<!doctype html>
+
+<html>
+
+<head>
+	<meta charset="utf-8"/>
+	<title> JQuery & Ajax </title>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.7.1.min.js"></script>
+	<script>
+
+	// jquery (is cool)
+
+	$(document).ready(function() {
+
+		$("button").click(function(){
+
+			$("p").hide();
+
+		});
+	});
+
+	// vanilla javascript (sucks)
+
+	
+	loadFunction = function() {
+
+		button = document.getElementsByTagName("button")[0];
+
+
+		button.onclick = function() {
+
+			p = document.getElementsByTagName("p")[0];
+
+			p.style.display = "none";
+ 
+		}
+	}
+
+	document.addEventListener("DOMContentLoaded",loadFunction);
+
+
+	</script>
+</head>
+
+<body>
+
+	<button id="thing">Don't Click Me.</button>
+
+	<p>
+		This is a stupid paragraph, and I don't know why you're even looking at it.
+	</p>
+
+</body>
+
+</html>

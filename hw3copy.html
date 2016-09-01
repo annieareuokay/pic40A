@@ -1,0 +1,76 @@
+<html>
+<head>
+
+
+    <script language="javascript">
+       function hi(){
+alert('hi');}
+function operation() {
+    var ans =document.getElementById("answer");
+    if (document.getElementById("add").checked) {
+        ans.value= calculate('add');
+    }
+    if (document.getElementById("subtract").checked) {
+        ans.value= calculate('subtract');
+    }
+    if (document.getElementById("multiply").checked) {
+        ans.value= calculate('multiply');
+    }
+    if (document.getElementById("divide").checked) {
+        ans.value= calculate('divide');
+    }
+}
+        function calculate(action){
+            var num1 = document.getElementById("userInput").value;
+            var num2 = document.getElementById("userInput2").value;
+            //console.log(action);
+            console.log(num1);
+            console.log(num2);
+            var result;
+            switch(action){
+                case 'add':
+                    result= parseInt(num1)+parseInt(num2);
+                    break;
+                case 'subtract':
+                    result= num1-num2;
+                     break;
+                case 'multiply':
+                    result= num1*num2;
+                     break;
+                case 'divide':
+                    result= num1/num2;
+                     break;
+            }
+            console.log(result);
+            return result;
+        }
+
+    </script>
+
+    <title>
+        Calculator
+    </title>
+</head>
+
+<body>
+<h1>Simple Calculator</h1>
+    <form>
+  <input type="text" id="userInput" />
+        <fieldset>
+    
+        +<input type="radio" name="group1" id="add" value="add"/>
+        -<input type="radio" name="group1" id="subtract" value="subtract"/>
+        *<input type="radio" name="group1" id="multiply" value="multiply"/>
+        /<input type="radio" name="group1" id="divide" value="divide"/>
+
+
+        </fieldset>
+        <input type="text" id="userInput2"/>
+        <input type="button" value="Calculate" onClick="operation();"/>
+        <input type="text" id="answer" readonly/>
+        
+
+
+    </form>
+</body>
+</html>
